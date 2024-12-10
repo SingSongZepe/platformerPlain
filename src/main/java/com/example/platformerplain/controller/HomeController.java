@@ -49,6 +49,8 @@ public class HomeController {
     // 直接跳转至第一关游戏开始界面
     // 待添加页面
     public void switchOnClicked_StartGame(ActionEvent actionEvent) {
+        //
+        System.out.println("Start game");
 
     }
 }

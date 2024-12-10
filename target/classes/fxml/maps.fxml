@@ -6,42 +6,69 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.platformerplain.controller.MapsController">
-   <children>
-      <ImageView fitHeight="810.0" fitWidth="1291.0" layoutX="-4.0" layoutY="-6.0" pickOnBounds="true">
-         <image>
-            <Image url="@../../../../../images/2_Maps/map_background.jpg" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="146.0" fitWidth="238.0" layoutX="166.0" layoutY="76.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../../../../../images/background/glacier2.jpg" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="146.0" fitWidth="238.0" layoutX="166.0" layoutY="274.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../../../../../images/background/desert.jpg" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="156.0" fitWidth="298.0" layoutX="165.0" layoutY="475.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../../../../../images/background/forest2.jpg" />
-         </image>
-      </ImageView>
-      <Button id="Maps_botton2" layoutX="611.0" layoutY="98.0" mnemonicParsing="false" opacity="0.9" prefHeight="94.0" prefWidth="416.0" style="-fx-background-color: green;" text="Start" textAlignment="CENTER">
-         <font>
-            <Font name="American Typewriter Bold" size="36.0" />
-         </font>
-      </Button>
-      <Button id="Maps_botton2" layoutX="605.0" layoutY="294.0" mnemonicParsing="false" opacity="0.9" prefHeight="94.0" prefWidth="416.0" text="start" textAlignment="CENTER">
-         <font>
-            <Font name="American Typewriter Bold" size="36.0" />
-         </font>
-      </Button>
-      <Button id="Maps_botton3" layoutX="610.0" layoutY="497.0" mnemonicParsing="false" opacity="0.9" prefHeight="94.0" prefWidth="416.0" text="Start" textAlignment="CENTER">
-         <font>
-            <Font name="American Typewriter Bold" size="36.0" />
-         </font>
-      </Button>
-   </children>
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
+      prefHeight="800.0" prefWidth="1280.0"
+      xmlns="http://javafx.com/javafx/23.0.1"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.example.platformerplain.controller.MapsController"
+      stylesheets="@style.css">
+
+   <ImageView fx:id="Maps_backgroundImage" fitHeight="810.0" fitWidth="1291.0" layoutX="-4.0" layoutY="-6.0"
+              pickOnBounds="true">
+      <Image url="@../images/maps/map_background.jpg"/>
+   </ImageView>
+
+   <ImageView fx:id="level1_image" fitHeight="146.0" fitWidth="238.0" layoutX="166.0" layoutY="76.0"
+              pickOnBounds="true" preserveRatio="true">
+      <Image url="@../images/background/glacier.jpg"/>
+   </ImageView>
+
+   <ImageView fx:id="level2_image" fitHeight="146.0" fitWidth="238.0" layoutX="166.0" layoutY="274.0"
+              pickOnBounds="true" preserveRatio="true">
+      <Image url="@../images/background/desert.jpg"/>
+   </ImageView>
+
+   <ImageView fx:id="level3_image" fitHeight="156.0" fitWidth="298.0" layoutX="165.0" layoutY="475.0"
+              pickOnBounds="true" preserveRatio="true">
+      <Image url="@../images/background/forest2.jpg"/>
+   </ImageView>
+
+   <Button fx:id="Maps_glacier_button" layoutX="611.0" layoutY="98.0"
+           mnemonicParsing="false" opacity="0.9" prefHeight="94.0"
+           prefWidth="416.0"
+           onMouseEntered="#Change_glacierImageEffect"
+           onMouseExited="#glacier_mouseExited"
+           textAlignment="CENTER">
+      <font>
+         <Font name="American Typewriter Bold" size="36.0"/>
+      </font>
+   </Button>
+
+   <Button fx:id="Maps_desert_button" layoutX="605.0" layoutY="294.0"
+           mnemonicParsing="false" opacity="0.9" prefHeight="94.0"
+           prefWidth="416.0"  
+           onMouseEntered="#Change_desertImageEffect"
+           onMouseExited="#desert_mouseExited"
+           textAlignment="CENTER">
+      <font>
+         <Font name="American Typewriter Bold" size="36.0"/>
+      </font>
+   </Button>
+
+   <Button fx:id="Maps_forest_button" layoutX="610.0" layoutY="497.0"
+           mnemonicParsing="false" opacity="0.9" prefHeight="94.0"
+           prefWidth="416.0"  
+           onMouseEntered="#Change_forestImageEffect"
+           onMouseExited="#forest_mouseExited"
+           textAlignment="CENTER">
+      <font>
+         <Font name="American Typewriter Bold" size="36.0"/>
+      </font>
+   </Button>
+
+   <ImageView fx:id="Maps_closePage" fitHeight="58.0" fitWidth="58.0" layoutX="1203.0" layoutY="15.0"
+              onMouseClicked="#Switch_toHome" pickOnBounds="true" preserveRatio="true"
+              styleClass="Home_closePage">
+      <Image url="@../images/buttons/close.png" />
+   </ImageView>
 </Pane>

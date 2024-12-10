@@ -34,7 +34,8 @@
    </Button>
 
    <Button fx:id="Home_Start_button" layoutX="400.0" layoutY="500.0"
-           mnemonicParsing="false" onAction="#switchOnClicked_StartGame"
+           mnemonicParsing="false"
+           onAction="#switchOnClicked_StartGame"
            opacity="0.9" prefHeight="103.0" prefWidth="455.0">
       <font>
          <Font name="System Bold" size="22.0" />
@@ -50,7 +51,8 @@
    </Button>
 
    <ImageView fx:id="Home_closePage" fitHeight="58.0" fitWidth="58.0" layoutX="1203.0" layoutY="15.0"
-              onMouseClicked="#switchOnClicked_Exit" pickOnBounds="true" preserveRatio="true">
+              onMouseClicked="#switchOnClicked_Exit" pickOnBounds="true" preserveRatio="true"
+              styleClass="Home_closePage">
       <Image url="@../images/buttons/close.png" />
    </ImageView>
 </Pane>

@@ -1,0 +1,8 @@
+# Maven
+target/
+*.log
+
+# IDE specific
+.idea/
+*.iml
+out/
