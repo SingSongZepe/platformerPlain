@@ -1,8 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
+            prefHeight="800.0" prefWidth="1280.0"
+            xmlns="http://javafx.com/javafx/23.0.1"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.example.platformerplain.controller.InformationController"
+            stylesheets="@style.css">
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.platformerplain.controller.InformationController">
+    <ImageView fitHeight="802.0" fitWidth="1283.0" layoutX="-3.0"
+               opacity="0.52" pickOnBounds="true">
+        <Image url="@../images/background/glacier.jpg" />
+    </ImageView>
+
+    <Text layoutX="92.0" layoutY="93.0" strokeType="OUTSIDE"
+          strokeWidth="0.0"
+          text="This is information page">
+        <font>
+            <Font size="33.0"/>
+        </font>
+    </Text>
+
+    <ImageView fx:id="Information_closePage" fitHeight="58.0" fitWidth="58.0" layoutX="1203.0" layoutY="15.0"
+               onMouseClicked="#Switch_toHome" pickOnBounds="true" preserveRatio="true"
+               styleClass="Home_closePage">
+        <Image url="@../images/buttons/close.png" />
+    </ImageView>
 
 </AnchorPane>

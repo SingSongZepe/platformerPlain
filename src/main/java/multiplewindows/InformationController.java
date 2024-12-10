@@ -1,11 +1,15 @@
 package multiplewindows;
 
-import javafx.event.ActionEvent;
+import com.example.platformerplain.Start;
+import javafx.scene.control.Button;
+import javafx.scene.input.MouseEvent;
 
 import java.io.IOException;
 
 public class InformationController {
-    public void Switch_toHome(ActionEvent actionEvent) throws IOException {
-        Main.setRoot("Home");
+    public Button Information_closePage;
+
+    public void Switch_toHome(MouseEvent actionEvent) throws IOException {
+        Start.setRoot("home");
     }
 }

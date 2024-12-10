@@ -14,7 +14,8 @@
             prefHeight="800.0" prefWidth="1280.0"
             xmlns="http://javafx.com/javafx/23.0.1"
             xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="com.example.platformerplain.controller.OptionController">
+            fx:controller="com.example.platformerplain.controller.OptionController"
+            stylesheets="@style.css">
 
    <ImageView fitHeight="802.0" fitWidth="1283.0" layoutX="-3.0"
               opacity="0.52" pickOnBounds="true">
@@ -49,35 +50,48 @@
    </ImageView>
 
    <Button layoutX="1000.0" layoutY="575.0" mnemonicParsing="false"
-           prefHeight="40.0" prefWidth="100.0" text="Bouncy Amy">
+           prefHeight="40.0"
+           onAction="#Switch_to_player1"
+           text="Bouncy Amy"
+           styleClass="select_player_button">
       <font>
          <Font name="System Bold" size="15.0" />
       </font>
    </Button>
 
    <Button layoutX="730.0" layoutY="575.0" mnemonicParsing="false"
-           prefHeight="40.0" prefWidth="100.0" text="Explorer Lily">
+           prefHeight="40.0"
+           onAction="#Switch_to_player2"
+           text="Explorer Lily"
+           styleClass="select_player_button">
       <font>
          <Font name="System Bold Italic" size="15.0" />
       </font>
    </Button>
 
    <Button layoutX="450.0" layoutY="575.0" mnemonicParsing="false"
-           prefHeight="40.0" prefWidth="100.0" text="Brave Carl">
+           prefHeight="40.0"
+           onAction="#Switch_to_player3"
+           text="Brave Carl"
+           styleClass="select_player_button">
       <font>
          <Font name="System Bold" size="15.0" />
       </font>
    </Button>
 
    <Button layoutX="171.0" layoutY="575.0" mnemonicParsing="false"
-           prefHeight="40.0" prefWidth="100.0" text="Smart Jack">
+           prefHeight="40.0"
+           onAction="#Switch_to_player4"
+           text="Smart Jack"
+           styleClass="select_player_button">
       <font>
          <Font name="System Bold" size="15.0" />
       </font>
    </Button>
 
    <ImageView fx:id="Option_closePage" fitHeight="58.0" fitWidth="58.0" layoutX="1203.0" layoutY="15.0"
-              onMouseClicked="#Switch_toHome" pickOnBounds="true" preserveRatio="true">
+              onMouseClicked="#Switch_toHome" pickOnBounds="true" preserveRatio="true"
+              styleClass="Option_closePage">
       <Image url="@../images/buttons/close.png" />
    </ImageView>
 
@@ -92,4 +106,5 @@
             <MenuItem mnemonicParsing="false" text="About"/>
         </Menu>
     </MenuBar>
+
 </AnchorPane>
