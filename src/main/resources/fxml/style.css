@@ -1,0 +1,100 @@
+
+/* Start -> Next button */
+#Start_button_next {
+    -fx-background-image : url("/images/1_StartMain/StartButton.png");
+    -fx-background-size : cover;
+    -fx-background-repeat : no-repeat;
+    -fx-background-position : center;
+    -fx-border-width: 0;
+    -fx-padding: 0;
+    -fx-cursor: hand;
+}
+
+/* Home -> Switch to Option page button */
+#Home_Option_button {
+    -fx-background-image : url("/images/3_Setting/OptionClick.png");
+    -fx-background-size : cover;
+    -fx-background-repeat : no-repeat;
+    -fx-background-position : center;
+    -fx-border-width: 0;
+    -fx-padding: 0;
+    -fx-cursor: hand;
+}
+
+/* Home -> Switch to Maps page button */
+#Home_Maps_button {
+    -fx-background-image : url("/images/3_Setting/MapsClick.png");
+    -fx-background-size : cover;
+    -fx-background-repeat : no-repeat;
+    -fx-background-position : center;
+    -fx-border-width: 0;
+    -fx-padding: 0;
+    -fx-cursor: hand;
+}
+
+/* Home -> Switch to Information page button */
+#Home_Information_button {
+    -fx-background-image : url("/images/3_Setting/InfoClick.png");
+    -fx-background-size : cover;
+    -fx-background-repeat : no-repeat;
+    -fx-background-position : center;
+    -fx-border-width: 0;
+    -fx-padding: 0;
+    -fx-cursor: hand;
+}
+
+/* Home -> Switch to Setting page button */
+#Home_Setting_button {
+    -fx-background-image : url("/images/3_Setting/SettingClick.png");
+    -fx-background-size : cover;
+    -fx-background-repeat : no-repeat;
+    -fx-background-position : center;
+    -fx-border-width: 0;
+    -fx-padding: 0;
+    -fx-cursor: hand;
+}
+
+#Home_Start_button {
+    -fx-background-image : url("/images/3_Setting/StartClick.png");
+    -fx-background-size : cover;
+    -fx-background-repeat : no-repeat;
+    -fx-background-position : center;
+    -fx-border-width: 0;
+    -fx-padding: 0;
+    -fx-cursor: hand;
+}
+
+#Maps_glacier_button {
+    -fx-background-image : url("/images/4_MapSelecting/Glacier.png");
+    -fx-background-size : cover;
+    -fx-background-repeat : no-repeat;
+    -fx-background-position : center;
+    -fx-border-width: 0;
+    -fx-padding: 0;
+    -fx-cursor: hand;
+}
+
+#Maps_desert_button {
+    -fx-background-image : url("/images/4_MapSelecting/Desert.png");
+    -fx-background-size : cover;
+    -fx-background-repeat : no-repeat;
+    -fx-background-position : center;
+    -fx-border-width: 0;
+    -fx-padding: 0;
+    -fx-cursor: hand;
+}
+
+#Maps_forest_button {
+    -fx-background-image : url("/images/4_MapSelecting/Forest.png");
+    -fx-background-size : cover;
+    -fx-background-repeat : no-repeat;
+    -fx-background-position : center;
+    -fx-border-width: 0;
+    -fx-padding: 0;
+    -fx-cursor: hand;
+}
+
+.Home_closePage {
+    -fx-cursor: hand;
+}
+

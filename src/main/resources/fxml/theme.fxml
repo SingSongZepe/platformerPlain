@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Text?>
+
+<Pane prefHeight="717.0" prefWidth="1164.0" style="-fx-background-color: gray;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="multiplewindows.ThemeController">
+    <children>
+        <Text layoutX="107.0" layoutY="118.0" wrappingWidth="202.0595703125">
+            hihihi
+        </Text>
+    </children>
+
+</Pane>
