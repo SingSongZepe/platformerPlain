@@ -81,7 +81,7 @@
 
 重构了大部分内容，完成了部分gui逻辑。
 
-### feature1 11.12.2024
+### feature1 v2 11.12.2024
 
 1. 重构了所有代码
 
@@ -110,3 +110,53 @@
 5. 尝试写了一点对函数的javadoc，符合你们要求的格式吗？如果符合后面就采用这种方式进行javadoc标注
 
 > ![](.\readme_images\Snipaste_2024-12-11_04-05-18.png)
+
+### feature2 v2 11.12.2024
+
+1. 添加函数Start.initContent用来给Start.appRoot初始化和Start.creatEntity函数
+
+2. 修改了一些Start成员的访问类型(private)
+
+3. 把Start改成了单例模式，并且在init中初始化instance
+
+4. 将主窗口变成unresizable，固定为1280x720
+
+5. 添加了按下option->start之后的进入游戏的主逻辑，可以根据按下start之前玩家选择进入游戏界面（character, map）。
+
+6. 定义游戏的积分规则
+
+> - 这是原版积分规则
+> 
+> > ![](F:\MyProjects\receive\java_design_mode\code\PlatformerPlain_main\readme_images\Snipaste_2024-12-11_19-17-45.png)
+> > 
+> > 这个得分规则有点奇怪，通关时间和得分正相关
+> 
+> - 我定义了新的积分规则，时间最长为300秒，如果超过，判为game over
+> 
+> > (300-T) +1000*(n/N)
+> > 
+> > 其中T代表通过时间，n表示获取的物资，N表示总物资，这些数据可能和地图有关，也可能是随机生成的数据。
+> > 
+> > 并生成了ScoreCalculator.calculateScore函数
+
+7. 删除（注释）了home.fxml中的menu bar（至少目前没用）
+
+8. 更改了character.fxml角色下面的按钮对应的名称问题。
+
+9. 更改了进入游戏之后使用的背景图片（由黑色背景改成map对应的图片）
+
+10. 添加了计时逻辑和计时label，并且添加了一个quit game按钮，用来直接退到home.fxml
+
+11. 更改了部分碰撞逻辑
+
+12. 修改了object.Character  (Decorator)
+
+13. 添加了object.Map  (Decorator)
+
+14. 添加了game_over.fxml，游戏因某种原因结束的时候展示
+
+15. 修改GameState为Factory pattern
+
+16. 背景素材有点少，在测试一个图片的过程中出现了明显的糊了的效果。
+
+> ![](./readme_images\Snipaste_2024-12-11_22-06-07.png)

@@ -31,16 +31,13 @@ public class MapsController {
     public ImageView Maps_closePage;
 
 
-    /*当点击Switch_toHome按钮时返回到前一页 即Home Page*/
     @FXML
     public void Switch_toHome(MouseEvent actionEvent) throws IOException {
         Start.setRoot("home");
     }
 
-    /*添加当鼠标enter button时的图片效果*/
 
     @FXML
-    // 当鼠标点击时添加图片点击效果
     public void Change_glacierImageEffect(MouseEvent event) {
         Glow glowEffect = new Glow(0.5);
         DropShadow shadowEffect = new DropShadow();
@@ -53,7 +50,6 @@ public class MapsController {
     }
 
     @FXML
-    // 当鼠标点击时添加图片点击效果
     public void Change_desertImageEffect(MouseEvent event) {
         Glow glowEffect = new Glow(0.5);
         DropShadow shadowEffect = new DropShadow();
@@ -66,7 +62,6 @@ public class MapsController {
     }
 
     @FXML
-    // 当鼠标点击时添加图片点击效果
     public void Change_forestImageEffect(MouseEvent event) {
         Glow glowEffect = new Glow(0.5);
         DropShadow shadowEffect = new DropShadow();
@@ -78,7 +73,6 @@ public class MapsController {
         level3_image.setFitWidth(280);
     }
 
-    /*添加当鼠标exit button时的图片效果(恢复初始状态)*/
     @FXML
     public void glacier_mouseExited(MouseEvent event) {
         Glow glowEffect = new Glow(0);
@@ -115,17 +109,33 @@ public class MapsController {
         level3_image.setFitWidth(250);
     }
 
-    /*添加当鼠标点击相应level button时跳转至相对应的Game Level page*/
+    /**
+     * switches to game level 1 when button is clicked
+     * @param actionEvent
+     */
     @FXML
     public void Switch_GameLevel1(ActionEvent actionEvent) {
-
+        System.out.println("Switch to Game Level 1");
+        Start.gameState.setMap(1);
     }
 
-    @FXML
-    public void Switch_GameLevel3(ActionEvent actionEvent) {
-    }
-
+    /**
+     * switches to game level 2 when button is clicked
+     * @param actionEvent
+     */
     @FXML
     public void Switch_GameLevel2(ActionEvent actionEvent) {
+        System.out.println("Switch to Game Level 2");
+        Start.gameState.setMap(2);
+    }
+
+    /**
+     * switches to game level 3 when button is clicked
+     * @param actionEvent
+     */
+    @FXML
+    public void Switch_GameLevel3(ActionEvent actionEvent) {
+        System.out.println("Switch to Game Level 3");
+        Start.gameState.setMap(3);
     }
 }

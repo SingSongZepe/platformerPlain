@@ -1,30 +1,48 @@
 package com.example.platformerplain.object;
 
 /**
- * design pattern: Singleton.
- * Singleton class that holds the game state.
+ * design pattern: Factory.
+ * This class represents the game state. It contains the character object.
  */
 public class GameState {
-    private GameState() {
-        this.character = new Character();
-    }
-
-    // lazy initialization of the singleton instance
-    private static class Holder {
-        public static final GameState gameState = new GameState();
-    }
-
-    public static GameState getInstance() {
-        return Holder.gameState;
-    }
 
     // game state variables
-    private Character character;
-    // getters and setters
-    public Character getCharacter() {
-        return character;
+    public Character character;
+    public Map map;
+
+    // in-game variables
+    public int totalSupplies;
+    public int collectedSupplies;
+
+    public static final int TOTAL_TIME = 300;
+    public int spentTime;
+
+    // constructor
+    public GameState() {
+        character = new Character();
+        map = new Map();
+
+        totalSupplies = 0;
+        collectedSupplies = 0;
+
+        spentTime = 0;
     }
+
     public void setCharacter(Character character) {
         this.character = character;
+    }
+
+    public void setCharacter(int index) {
+        this.character.index = index;
+        this.character.name = Character.getNameByIndex(index);
+    }
+
+    public void setMap(Map map) {
+        this.map = map;
+    }
+
+    public void setMap(int index) {
+        this.map.index = index;
+        this.map.map_name = Map.getNameByIndex(index);
     }
 }
