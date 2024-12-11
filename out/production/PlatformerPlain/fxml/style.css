@@ -154,6 +154,6 @@
 
 /* option -> select player button */
 .select_player_button {
-    -fx-width: 200px;
+    -fx-width: 250px;
     -fx-cursor: hand;
 }

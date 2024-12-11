@@ -1,5 +1,6 @@
 package com.example.platformerplain.controller;
 
+import com.example.platformerplain.object.Character;
 import javafx.event.ActionEvent;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -35,6 +36,7 @@ public class OptionController {
     // 1 represents player1, 2 represents player2, 3 represents player3
     // ...
     private void Switch_player(int index) {
-
+        System.out.println("Switch to player " + index);
+        Start.gameState.setCharacter(index);
     }
 }

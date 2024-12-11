@@ -1,14 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
+<AnchorPane xmlns:fx="http://javafx.com/fxml"
             fx:controller="com.example.platformerplain.controller.ScoreController"
-            prefHeight="400.0" prefWidth="600.0">
+            prefHeight="720.0" prefWidth="1280.0">
 
+    <!-- background image -->
+    <ImageView fitHeight="720" fitWidth="1280" preserveRatio="true">
+        <Image url="@../images/background/glacier1.jpg"/> <!-- 替换为您的图片路径 -->
+    </ImageView>
+
+    <VBox alignment="CENTER" layoutX="0" layoutY="50" spacing="20" prefWidth="1280">
+        <Text text="Game Over!"
+              style="-fx-font-size: 48; -fx-font-weight: bold; -fx-fill: white; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.7), 10, 0, 0, 0);"/>
+
+        <HBox spacing="10" layoutX="400" layoutY="200" prefHeight="100" prefWidth="1280">
+            <Text text="Current Score:" style="-fx-font-size: 36; -fx-fill: white;"/>
+            <Text fx:id="currentScoreText" style="-fx-font-size: 36; -fx-fill: lime; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.7), 10, 0, 0, 0);"/>
+        </HBox>
+
+        <HBox spacing="10" layoutX="400" layoutY="300" prefHeight="100" prefWidth="1280">
+            <Text text="High Score:" style="-fx-font-size: 36; -fx-fill: white;"/>
+            <Text fx:id="highScoreText" style="-fx-font-size: 36; -fx-fill: red; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.7), 10, 0, 0, 0);"/>
+        </HBox>
+    </VBox>
+
+    <Button fx:id="returnToMenuButton" text="Return to Main Menu" layoutX="400" layoutY="300"
+            prefWidth="200" prefHeight="100"
+            onAction="#Switch_toHome">
+
+    </Button>
 </AnchorPane>

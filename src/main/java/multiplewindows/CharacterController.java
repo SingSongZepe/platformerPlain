@@ -28,6 +28,11 @@ public class CharacterController {
 
     /*添加当鼠标click button时的图片效果*/
 
+    /**
+     * This method is called when the user clicks on the character1 button.
+     * It sets the character1 image to be active and the other images to be inactive.
+     * @param actionEvent the mouse click event
+     */
     @FXML
     public void choose_character1(ActionEvent actionEvent) {
         Glow glowEffect = new Glow(0.5);
@@ -40,6 +45,11 @@ public class CharacterController {
         character1.setFitWidth(170);
     }
 
+    /**
+     * This method is called when the user clicks on the character2 button.
+     * It sets the character2 image to be active and the other images to be inactive.
+     * @param actionEvent the mouse click event
+     */
     @FXML
     public void choose_character2(ActionEvent actionEvent) {
         Glow glowEffect = new Glow(0.5);
@@ -52,6 +62,10 @@ public class CharacterController {
         character2.setFitWidth(170);
     }
 
+    /**
+     *  This method is called when the user clicks on the character3 button.
+     * @param actionEvent
+     */
     @FXML
     public void choose_character3(ActionEvent actionEvent) {
         Glow glowEffect = new Glow(0.5);
@@ -64,6 +78,10 @@ public class CharacterController {
         character3.setFitWidth(170);
     }
 
+    /**
+     *  This method is called when the user clicks on the character4 button.
+     * @param actionEvent
+     */
     @FXML
     public void choose_character4(ActionEvent actionEvent) {
         Glow glowEffect = new Glow(0.5);
@@ -76,8 +94,10 @@ public class CharacterController {
         character4.setFitWidth(170);
     }
 
-    /*添加当鼠标exit button时的图片效果(恢复初始状态)*/
-
+    /**
+     *  This method is called when the user exits the character1 button.
+     * @param event
+     */
     @FXML
     public void mouseExited_character1(MouseEvent event) {
         Glow glowEffect = new Glow(0.0);
@@ -90,6 +110,10 @@ public class CharacterController {
         character1.setFitWidth(166);
     }
 
+    /**
+     *  This method is called when the user exits the character2 button.
+     * @param event
+     */
     @FXML
     public void mouseExited_character2(MouseEvent event) {
         Glow glowEffect = new Glow(0.0);
@@ -102,6 +126,10 @@ public class CharacterController {
         character2.setFitWidth(194);
     }
 
+    /**
+     *  This method is called when the user exits the character3 button.
+     * @param event
+     */
     @FXML
     public void mouseExited_character3(MouseEvent event) {
         Glow glowEffect = new Glow(0.0);
@@ -114,6 +142,10 @@ public class CharacterController {
         character3.setFitWidth(159);
     }
 
+    /**
+     *  This method is called when the user exits the character4 button.
+     * @param event
+     */
     @FXML
     public void mouseExited_character4(MouseEvent event) {
         Glow glowEffect = new Glow(0.0);

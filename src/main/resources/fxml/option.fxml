@@ -11,7 +11,7 @@
 <?import javafx.scene.text.Text?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
-            prefHeight="800.0" prefWidth="1280.0"
+            prefHeight="720.0" prefWidth="1280.0"
             xmlns="http://javafx.com/javafx/23.0.1"
             xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="com.example.platformerplain.controller.OptionController"
@@ -51,8 +51,8 @@
 
    <Button layoutX="1000.0" layoutY="575.0" mnemonicParsing="false"
            prefHeight="40.0"
-           onAction="#Switch_to_player1"
-           text="Bouncy Amy"
+           onAction="#Switch_to_player4"
+           text="Explorer Lily"
            styleClass="select_player_button">
       <font>
          <Font name="System Bold" size="15.0" />
@@ -61,8 +61,8 @@
 
    <Button layoutX="730.0" layoutY="575.0" mnemonicParsing="false"
            prefHeight="40.0"
-           onAction="#Switch_to_player2"
-           text="Explorer Lily"
+           onAction="#Switch_to_player3"
+           text="Smart Jack"
            styleClass="select_player_button">
       <font>
          <Font name="System Bold Italic" size="15.0" />
@@ -71,7 +71,7 @@
 
    <Button layoutX="450.0" layoutY="575.0" mnemonicParsing="false"
            prefHeight="40.0"
-           onAction="#Switch_to_player3"
+           onAction="#Switch_to_player2"
            text="Brave Carl"
            styleClass="select_player_button">
       <font>
@@ -81,8 +81,8 @@
 
    <Button layoutX="171.0" layoutY="575.0" mnemonicParsing="false"
            prefHeight="40.0"
-           onAction="#Switch_to_player4"
-           text="Smart Jack"
+           onAction="#Switch_to_player1"
+           text="Bouncy Amy"
            styleClass="select_player_button">
       <font>
          <Font name="System Bold" size="15.0" />
@@ -95,16 +95,17 @@
       <Image url="@../images/buttons/close.png" />
    </ImageView>
 
-    <MenuBar prefHeight="28.0" prefWidth="774.0">
-        <Menu mnemonicParsing="false" text="File">
-            <MenuItem mnemonicParsing="false" text="Close"/>
-        </Menu>
-        <Menu mnemonicParsing="false" text="Edit">
-            <MenuItem mnemonicParsing="false" text="Delete"/>
-        </Menu>
-        <Menu mnemonicParsing="false" text="Help">
-            <MenuItem mnemonicParsing="false" text="About"/>
-        </Menu>
-    </MenuBar>
+<!--    useless menu bar -->
+<!--    <MenuBar prefHeight="28.0" prefWidth="774.0">-->
+<!--        <Menu mnemonicParsing="false" text="File">-->
+<!--            <MenuItem mnemonicParsing="false" text="Close"/>-->
+<!--        </Menu>-->
+<!--        <Menu mnemonicParsing="false" text="Edit">-->
+<!--            <MenuItem mnemonicParsing="false" text="Delete"/>-->
+<!--        </Menu>-->
+<!--        <Menu mnemonicParsing="false" text="Help">-->
+<!--            <MenuItem mnemonicParsing="false" text="About"/>-->
+<!--        </Menu>-->
+<!--    </MenuBar>-->
 
 </AnchorPane>

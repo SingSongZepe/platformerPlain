@@ -48,9 +48,8 @@ public class HomeController {
     @FXML
     // 直接跳转至第一关游戏开始界面
     // 待添加页面
-    public void switchOnClicked_StartGame(ActionEvent actionEvent) {
-        //
+    public void switchOnClicked_StartGame(ActionEvent actionEvent) throws IOException {
         System.out.println("Start game");
-
+        Start.startGame();
     }
 }
