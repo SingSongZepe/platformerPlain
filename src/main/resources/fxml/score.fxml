@@ -11,7 +11,7 @@
 
     <!-- background image -->
     <ImageView fitHeight="720" fitWidth="1280" preserveRatio="true">
-        <Image url="@../images/background/glacier1.jpg"/> <!-- 替换为您的图片路径 -->
+        <Image url="@../images/background/glacier1.jpg"/>
     </ImageView>
 
     <VBox alignment="CENTER" layoutX="0" layoutY="50" spacing="20" prefWidth="1280">

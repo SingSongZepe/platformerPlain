@@ -78,7 +78,7 @@ public class Start extends Application {
     public void start(Stage primaryStage) throws Exception {
         // start page
         // ! test here
-        scene = new Scene(loadFXML("score"));
+        scene = new Scene(loadFXML("start"));
         primaryStage.setScene(scene);
         primaryStage.setTitle("ESCAPE BEYOND!");
         primaryStage.show();
@@ -120,6 +120,10 @@ public class Start extends Application {
         launch(args);
     }
 
+
+    // make it a static variable to access it.
+    private static Label timerLabel;
+
     private static void initializeUi() throws IOException {
         // Create a VBox to hold the timer and exit button
         VBox uiContainer = new VBox();
@@ -131,7 +135,6 @@ public class Start extends Application {
         uiContainer.setPrefHeight(80);
 
         // Create a label to display the timer
-        Label timerLabel = new Label();
         timerLabel.setText("Time left: 5:00");
         timerLabel.setTextFill(Color.BLACK); // Set text color for visibility
         timerLabel.setStyle("-fx-font-size: 24px;");
@@ -169,8 +172,8 @@ public class Start extends Application {
         // Add the HBox to the UI container
         uiContainer.getChildren().add(hbox); // Add the HBox to the uiContainer
 
-        // Add the UI container to the appRoot
-        appRoot.getChildren().add(uiContainer); // Add the uiContainer to the appRoot
+        // Add the UI container to the uiRoot
+        uiRoot.getChildren().add(uiContainer); // Add the uiContainer to the uiRoot
 
         // Start the countdown timer
         startCountdown(timerLabel);
@@ -280,12 +283,21 @@ public class Start extends Application {
 
     // when you win the game
     public static void gameWin() throws IOException {
+
+        // there we add the time used to gameState
+        String timeFormatted = timerLabel.getText().split(" ")[2];
+        // covert mm:ss to seconds
+        int time = Integer.parseInt(timeFormatted.split(":")[0]) * 60 + Integer.parseInt(timeFormatted.split(":")[1]);
+        gameState.spentTime = time;
+
         // clear all the data of a map(game)
         platforms.clear();
         gameRoot = new Pane();
         appRoot = new Pane();
         uiRoot = new Pane();
-        gameState = new GameState();
+//        gameState will be used in the score view
+//        so, it won't be cleared here
+//        gameState = new GameState();
         playerController = null;
         timer.stop();
         timer = null;

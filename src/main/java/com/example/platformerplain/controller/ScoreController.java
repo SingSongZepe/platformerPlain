@@ -4,22 +4,17 @@ import com.example.platformerplain.Start;
 import com.example.platformerplain.object.Score;
 import com.example.platformerplain.object.ScoreManager;
 import com.example.platformerplain.object.Value;
-import com.example.platformerplain.utils.File;
 import com.example.platformerplain.utils.ScoreCalculator;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.text.Text;
 import javafx.scene.control.Button;
-import java.io.FileReader;
+
 import java.io.IOException;
-import java.nio.file.Paths;
-import javafx.scene.input.MouseEvent;
-import java.lang.reflect.Type;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.List;
-
-import static com.example.platformerplain.Start.loadFXML;
 
 public class ScoreController {
 
@@ -59,17 +54,32 @@ public class ScoreController {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd hh:mm:ss");
         String date = now.format(formatter);
 
+        // when size of loadedScores is not 3
+        // add new Score object to loadedScores
+        // it should contain all 3 maps
+        // map_index == 1, 2, 3
+        int[] existing_scores = {0, 0, 0};
+        for (Score score: loadedScores) {
+            existing_scores[score.getMapIndex()-1] = 1;
+        }
+        for (int i = 0; i < 3; i++) {
+            if (existing_scores[i] == 0) {
+                loadedScores.add(i, new Score(0, i+1, "", "0000-00-00 00:00:00"));
+            }
+        }
+
         if (currentScore > highScore) {
             loadedScores.set(
-                    map_index-1,
-                    new Score(
-                            currentScore,
-                            Start.gameState.map.index,
-                            Start.gameState.map.map_name,
-                            date
-                    )
+                map_index-1,
+                new Score(
+                    currentScore,
+                    Start.gameState.map.index,
+                    Start.gameState.map.map_name,
+                    date
+                )
             );
         }
+
         try {
             String filename = Value.SCORES_FILE;
             ScoreManager.serializeScores(loadedScores, filename);

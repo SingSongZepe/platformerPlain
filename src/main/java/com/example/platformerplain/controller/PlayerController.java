@@ -21,6 +21,9 @@ public class PlayerController {
     private int index; // index of character that player selected
     private Pane root;
 
+    // for mirror
+    private boolean isMovingRight = true;
+
     public PlayerController(Scene scene, Pane root, List<Node> platforms, int levelWidth, int index) {
         playerModel = new PlayerModel();
         playerView = new PlayerView(root, playerModel, index);
@@ -68,6 +71,11 @@ public class PlayerController {
 
     private void movePlayerX(int value) {
         boolean movingRight = value > 0;
+
+        if (isMovingRight != movingRight) {
+            playerView.mirror();
+        }
+        isMovingRight = movingRight;
 
         // calculate the middle point of player
         double playerMinX = playerView.getPlayerNode().getTranslateX();

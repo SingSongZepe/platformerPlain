@@ -76,4 +76,13 @@ public class PlayerView implements Observer {
         paneRoot.getChildren().add(playerImageView);
         return playerImageView;
     }
+
+    // mirror inversion of the player view
+    public void mirror() {
+        if (playerImageView.getScaleX() == -1) {
+            playerImageView.setScaleX(1);
+            return;
+        }
+        playerImageView.setScaleX(-1);
+    }
 }
