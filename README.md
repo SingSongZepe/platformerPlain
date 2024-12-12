@@ -86,7 +86,6 @@
 1. 重构了所有代码
 
 2. HomePageContontroller.java有什么用？目前写代码没有用到
-> **没有用到的话，老师删去就好**
 
 3. 创建了object/文件夹，用来存放一些数据结构，例如user选择的character，完成逻辑的过程中还有可能会有得分，游戏状态之类的。
 
@@ -107,17 +106,12 @@
 > 然后我的理解是需要在编写游戏逻辑的时候用到这些设计模式并且标明哪个类用了这个设计模式对吗？
 > 
 > 例如 object/GameState.java这个类使用了Singleton的设计模式，就在类的前面注释使用了这个设计模式，是这样吗？
-> 
-> **答： 是的,并且要在最后的readme.md中表明最重要的五个设计模式（以及为什么使用）以及最重要的五个创新。**
-> 
-> **除了Javadoc之外，适当的注释也是需要的**
+
 5. 尝试写了一点对函数的javadoc，符合你们要求的格式吗？如果符合后面就采用这种方式进行javadoc标注
-> **可以的，javadoc主要是是为了标明我们的维护工作（即重构的设计模式等），例子如下**
-> ![](.\readme_images\javadoc.png)
 
 > ![](.\readme_images\Snipaste_2024-12-11_04-05-18.png)
 
-### feature2 v2 11.12.2024
+### feature2 v3 11.12.2024
 
 1. 添加函数Start.initContent用来给Start.appRoot初始化和Start.creatEntity函数
 
@@ -176,3 +170,11 @@
 19. 添加了object/Score.java，用来序列化和反序列化，方便存储和读取数据。
 
 20. 添加了test/测试文件夹，并且添加了一个测试
+
+### feature3 v4 12.12.2024
+
+1. 添加了scores.json文件以及数据内容的错误处理系统
+
+2. 在playerController中添加了镜像逻辑，当角色向左走动的时候，图片会朝向左边，反之亦然。
+
+3. 添加了gameState从TimeLabel获取耗时并保存在gameState里面，将会在“score”页面处理得分。

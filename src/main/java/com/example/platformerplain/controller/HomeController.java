@@ -45,11 +45,19 @@ public class HomeController {
         Start.setRoot("option");
     }
 
+    /**
+     * This method is called when the user clicks on the start button.
+     * @param actionEvent
+     * @throws IOException
+     */
     @FXML
-    // 直接跳转至第一关游戏开始界面
-    // 待添加页面
     public void switchOnClicked_StartGame(ActionEvent actionEvent) throws IOException {
         System.out.println("Start game");
+
+        // clear some data before starting the game
+        Start.gameState.spentTime = 0;
+        Start.gameState.collectedSupplies = 0;
+
         Start.startGame();
     }
 }
