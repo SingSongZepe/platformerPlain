@@ -4,12 +4,27 @@
 <?import java.util.*?>
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 
 <AnchorPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
             fx:controller="com.example.platformerplain.controller.GameOverController"
-            prefHeight="400.0" prefWidth="600.0">
+            prefHeight="720.0" prefWidth="1280.0">
 
+    <ImageView fx:id="backgroundImage" fitHeight="720" fitWidth="1280" preserveRatio="true"
+               AnchorPane.topAnchor="0" AnchorPane.leftAnchor="0"
+               image="@.."/>
+
+    <Label fx:id="gameOverLabel" text="Game Over" style="-fx-font-size: 48px; -fx-text-fill: white;"
+           AnchorPane.topAnchor="200" AnchorPane.leftAnchor="400"/>
+
+    <Button fx:id="restartButton" text="Restart" style="-fx-font-size: 20px;"
+            AnchorPane.topAnchor="400" AnchorPane.leftAnchor="500"
+            onAction="#handleRestartButtonAction"/>
+
+    <Button fx:id="exitButton" text="Exit to Menu" style="-fx-font-size: 20px;"
+            AnchorPane.topAnchor="470" AnchorPane.leftAnchor="500"
+            onAction="#handleExitButtonAction"/>
 
 </AnchorPane>
