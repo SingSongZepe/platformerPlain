@@ -15,7 +15,7 @@
     </ImageView>
 
     <VBox alignment="CENTER" layoutX="0" layoutY="50" spacing="20" prefWidth="1280">
-        <Text text="Game Over!"
+        <Text text="You win the game!"
               style="-fx-font-size: 48; -fx-font-weight: bold; -fx-fill: white; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.7), 10, 0, 0, 0);"/>
 
         <HBox spacing="10" layoutX="400" layoutY="200" prefHeight="100" prefWidth="1280">

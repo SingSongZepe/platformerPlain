@@ -4,6 +4,7 @@ import javafx.animation.AnimationTimer;
 import javafx.scene.control.Label;
 
 import static com.example.platformerplain.Start.onCountdownEnd;
+import static com.example.platformerplain.Start.timerLabelTimer;
 
 
 public class Counter {
@@ -13,7 +14,7 @@ public class Counter {
         final int[] countdownTime = {totalTime}; // Using an array to modify inside the timer
 
         // Create an AnimationTimer for the countdown
-        AnimationTimer countdownTimer = new AnimationTimer() {
+        timerLabelTimer = new AnimationTimer() {
             private long lastUpdate = System.nanoTime(); // Track the last update time
 
             @Override
@@ -36,6 +37,6 @@ public class Counter {
             }
         };
 
-        countdownTimer.start(); // Start the countdown timer
+        timerLabelTimer.start(); // Start the countdown timer
     }
 }

@@ -62,6 +62,7 @@ public class ScoreController {
         for (Score score: loadedScores) {
             existing_scores[score.getMapIndex()-1] = 1;
         }
+
         for (int i = 0; i < 3; i++) {
             if (existing_scores[i] == 0) {
                 loadedScores.add(i, new Score(0, i+1, "", "0000-00-00 00:00:00"));
