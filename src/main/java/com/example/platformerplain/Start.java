@@ -2,7 +2,9 @@ package com.example.platformerplain;
 
 import com.example.platformerplain.controller.PlayerController;
 import com.example.platformerplain.object.*;
+import com.example.platformerplain.object.MovableNode;
 import com.example.platformerplain.utils.InitContent;
+import com.example.platformerplain.utils.IntArrayIterator;
 import javafx.animation.AnimationTimer;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -10,7 +12,6 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
-import javafx.scene.control.MenuItem;
 import javafx.scene.input.KeyCode;
 import javafx.scene.layout.*;
 import javafx.stage.Stage;
@@ -40,11 +41,16 @@ public class Start extends Application {
         instance = this; // Set the singleton instance
         gameState = new GameState();
 
+        rangeIterator = null;
+
         timer = new AnimationTimer() {
             @Override
             public void handle(long now) {
                 try {
                     playerController.update();
+                    for (MovableNode movableNode : movableNodes) {
+                        movableNode.step_move();
+                    }
                 } catch (IOException e) {
                     throw new RuntimeException(e);
                 }
@@ -70,6 +76,10 @@ public class Start extends Application {
     public static ArrayList<FeatureNode> featureNodes = new ArrayList<>();
     public static ArrayList<SupplyNode> supplyNodes = new ArrayList<>();
     public static DestinationNode destinationNode;
+    //
+    public static ArrayList<MovableNode> movableNodes = new ArrayList<>();
+    public static ArrayList<EnemyNode> enemyNodes = new ArrayList<>();
+
     public static Pane appRoot = new Pane();
     public static Pane gameRoot = new Pane();
     public static Pane uiRoot = new Pane();
@@ -78,6 +88,9 @@ public class Start extends Application {
     public static AnimationTimer timer;
 
     public static AnimationTimer timerLabelTimer;
+
+    // use to initialize the ranges of movable objects
+    public static IntArrayIterator rangeIterator;
 
     /**
      * Start the game by loading the start scene.
@@ -254,6 +267,10 @@ public class Start extends Application {
 
         platforms.clear();
         featureNodes.clear();
+        supplyNodes.clear();
+        destinationNode = null;
+        movableNodes.clear();
+        enemyNodes.clear();
         gameRoot = new Pane();
         appRoot = new Pane();
         uiRoot = new Pane();

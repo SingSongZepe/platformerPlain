@@ -36,20 +36,35 @@ public class LevelData {
     };
 
 
-    public static final String[] Level2 = new String[]{
-            "000000000000000000000000000000",
-            "000000000000000000000000000000",
-            "000000000000000000000000000000",
-            "000000000000000000000000000000",
-            "000000000000000000000000000000",
-            "000000000000000000000000000000",
-            "000000000000000000000000000000",
-            "000111000000000000000000000000",
-            "000000001110000000000000000000",
-            "000000000000011100000000000000",
-            "000001110000000000011100011000",
-            "111111110011110001111100111111",
+//    public static final String[] Level2 = new String[]{
+//            "000000000000000000000000000000",
+//            "000000000000000000000000000000",
+//            "000000000000000000000000000000",
+//            "000000000000000000000000000000",
+//            "000000000000000000000000000000",
+//            "000000000000000000000000000000",
+//            "000000400000000000000000000000",
+//            "000000000000000000000000000000",
+//            "000000000000000000000000000000",
+//            "000000000000000000090000000000",
+//            "0020003060000500000000000a0000",
+//            "111111111111111111111111111111",
+//    };
+    public static final String[] Level2 = new String[] {
+        "0000000000000000000000000000000000000000000000000000000000000000000",
+        "1111110000000007000000000000111100000800000000000000000000280000000",
+        "0000001100001111050000000000000001111100000000000000000011110000000",
+        "0000000000000000011100000000000000000000000000000000300000000000000",
+        "0700011000000000000090000000307000000090000000000011111000004000000",
+        "0111111100400000000000000000111100000000000000000000000000070000000",
+        "0000111100000000000000000000000000000000000000000000000000110000000",
+        "0600000000000020000000000000000000000000000003000001111100000000000",
+        "0111111000011111005000020000000000005800000001110000000000000000000",
+        "0000000000000000111111110000006000011111111000000000000000000000000",
+        "0000000000000000000000000011111100000000000000000000000723300a00000",
+        "0000000000000000000000000000000000000000000000000001111111111111111",
     };
+
     public static final String[] Level3 = new String[]{
             "000000000000000000000000000000",
             "000000000000000000000000000000",
@@ -58,7 +73,7 @@ public class LevelData {
             "000000000000000000000000000000",
             "000000000000000000000000000000",
             "000000000000000000000000000000",
-            "000111000000000000000000000000",
+            "000111000000000009000000000000",
             "000000001110000000000000000000",
             "000000000000011100000000000000",
             "000001110000000000011100011000",
@@ -68,6 +83,7 @@ public class LevelData {
     // use Levels to store all levels
     public static final List<String[]> Levels = new ArrayList<>();
     public static final List<Integer> LevelSupplies = new ArrayList<>();
+    public static final List<List<int[]>> LevelMovableObjectRanges = new ArrayList<>();
 
     static {
         Levels.add(Level1);
@@ -79,5 +95,27 @@ public class LevelData {
         LevelSupplies.add(6);
         LevelSupplies.add(10);
         LevelSupplies.add(999999);
+    }
+
+    static {
+        ArrayList<int[]> level1movableObjectRanges = new ArrayList<>();
+
+        LevelMovableObjectRanges.add(level1movableObjectRanges);
+
+        ArrayList<int[]> level2movableObjectRanges = new ArrayList<>();
+        level2movableObjectRanges.add(new int[]{0, 120});
+        level2movableObjectRanges.add(new int[]{0, 160});
+        level2movableObjectRanges.add(new int[]{0, 320});
+        level2movableObjectRanges.add(new int[]{0, 240});
+        level2movableObjectRanges.add(new int[]{0, 160});
+        level2movableObjectRanges.add(new int[]{0, 160});
+        level2movableObjectRanges.add(new int[]{0, 160});
+        level2movableObjectRanges.add(new int[]{0, 160});
+
+        LevelMovableObjectRanges.add(level2movableObjectRanges);
+
+        ArrayList<int[]> level3movableObjectRanges = new ArrayList<>();
+
+        LevelMovableObjectRanges.add(level3movableObjectRanges);
     }
 }

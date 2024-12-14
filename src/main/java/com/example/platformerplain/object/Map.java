@@ -24,8 +24,8 @@ public class Map {
     public String map_name;
 
     public Map() {
-        this.index = MAP_1_INDEX;
-        this.map_name = MAP_1_NAME;
+        this.index = MAP_2_INDEX;
+        this.map_name = MAP_2_NAME;
     }
 
     public Map(int index, String map_name) {
