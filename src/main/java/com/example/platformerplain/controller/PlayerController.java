@@ -2,6 +2,7 @@ package com.example.platformerplain.controller;
 
 import com.example.platformerplain.Start;
 import com.example.platformerplain.model.PlayerModel;
+import com.example.platformerplain.object.*;
 import com.example.platformerplain.view.PlayerView;
 import javafx.scene.Node;
 import javafx.scene.Scene;
@@ -9,6 +10,7 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.layout.Pane;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
@@ -16,6 +18,9 @@ public class PlayerController {
     private PlayerModel playerModel;
     private PlayerView playerView;
     private List<Node> platforms;
+    private List<FeatureNode> featureNodes;
+    private List<SupplyNode> supplyNodes;
+    private DestinationNode destinationNode;
     private HashMap<KeyCode, Boolean> keys = new HashMap<>();
     private int levelWidth;
     private int index; // index of character that player selected
@@ -24,18 +29,27 @@ public class PlayerController {
     // for mirror
     private boolean isMovingRight = true;
 
-    public PlayerController(Scene scene, Pane root, List<Node> platforms, int levelWidth, int index) {
+    public PlayerController(Scene scene, Pane root,
+                            ArrayList<Node> platforms,
+                            ArrayList<FeatureNode> featureNodes,
+                            ArrayList<SupplyNode> supplyNodes,
+                            DestinationNode destinationNode,
+                            int levelWidth, int index) {
+
         playerModel = new PlayerModel();
         playerView = new PlayerView(root, playerModel, index);
         scene.setOnKeyPressed(event -> keys.put(event.getCode(), true));
         scene.setOnKeyReleased(event -> keys.put(event.getCode(), false));
         this.platforms = platforms;
+        this.featureNodes = featureNodes;
+        this.supplyNodes = supplyNodes;
+        this.destinationNode = destinationNode;
         this.levelWidth = levelWidth;
         this.index = index;
         this.root = root;
     }
 
-    public void update() {
+    public void update() throws IOException {
         if (isPressed(KeyCode.W) && playerModel.getY() >= 5) {
             jumpPlayer();
         }
@@ -52,7 +66,6 @@ public class PlayerController {
         }
         playerModel.notifyObservers(); // update view
 
-
         // if playerY is smaller than 780, means player is out of screen (drop into the dark hole)
         // actually, it should be 720, but we add 60 to make sure that the player has opportunity to jump out of the dark hole
         // then game over
@@ -62,6 +75,31 @@ public class PlayerController {
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
+        }
+
+        // judge if player intersects with any supply
+        SupplyNode toBeDeleted = null;
+
+        for (SupplyNode supplyNode: supplyNodes) {
+            if (supplyNode.node.getBoundsInParent().intersects(playerView.getPlayerNode().getBoundsInParent())) {
+                System.out.println("get!");
+                // when you get the supply, delete it from the array
+                toBeDeleted = supplyNode;
+
+                Start.gameState.collectedSupplies += 1;
+                break;
+            }
+        }
+
+        if (toBeDeleted != null) {
+            Start.gameRoot.getChildren().remove(toBeDeleted.node);
+            supplyNodes.remove(toBeDeleted);
+        }
+
+        // check whether the player is at the place of destination
+        if (destinationNode.node.getBoundsInParent().intersects(playerView.getPlayerNode().getBoundsInParent())) {
+            // you win the game
+            Start.gameWin();
         }
     }
 
@@ -81,6 +119,20 @@ public class PlayerController {
         double playerMinX = playerView.getPlayerNode().getTranslateX();
         double playerMaxX = playerMinX + playerView.getPlayerNode().getBoundsInLocal().getWidth();
         double midPlayerX = (playerMinX + playerMaxX) / 2;
+
+        double speed_factor = 1;
+
+        // judge if the player is on the feature blocks
+        for (FeatureNode featureNode : featureNodes) {
+            if (featureNode.node.getBoundsInParent().contains(midPlayerX, playerModel.getY() + 70)) {
+                speed_factor = switch (featureNode.featureType) {
+                    case FeatureBlock.ICE_BLOCK -> 2;
+                    case FeatureBlock.SNOW_BLOCK -> 0.5;
+                    default -> speed_factor;
+                };
+                break;
+            }
+        }
 
         // when the player is in the center range, move platforms instead of player
         boolean isInCenterRange = midPlayerX < 645 && midPlayerX > 635;
@@ -108,25 +160,18 @@ public class PlayerController {
             }
 
             // if the player is in the center range, move platforms instead of player
-//            double platformMinX = 1280;
-//            double platformMaxX = 0;
-//            for (Node platform : platforms) {
-//                if (platform.getTranslateX() < platformMinX) {
-//                    platformMinX = platform.getTranslateX();
-//                } else if (platform.getTranslateX() > platformMaxX) {
-//                    platformMaxX = platform.getTranslateX();
-//                }
-//            }
-
             //  && platformMinX <= 5 && platformMaxX >= 1275
             if (isInCenterRange) {
                 // move platforms
                 for (Node platform : platforms) {
-                    platform.setTranslateX(platform.getTranslateX() + (movingRight ? -1 : 1));
+                    platform.setTranslateX(platform.getTranslateX() + speed_factor * (movingRight ? -1 : 1));
+                }
+                for (SupplyNode supplyNode: supplyNodes) {
+                    supplyNode.node.setTranslateX(supplyNode.node.getTranslateX() + speed_factor * (movingRight ? -1 : 1));
                 }
             } else {
                 // otherwise, update player position
-                playerModel.setX(playerModel.getX() + (movingRight ? 1 : -1));
+                playerModel.setX((int) (playerModel.getX() + speed_factor * (movingRight ? 1 : -1)));
                 playerView.getPlayerNode().setTranslateX(playerModel.getX());
             }
         }

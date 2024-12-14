@@ -9,8 +9,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class PlayerModel implements ObservedSubject {
-    private int x;
-    private int y;
+    private double x;
+    private double y;
     private boolean canJump = true;
     private Point2D playerVelocity = new Point2D(0, 0);
     private ArrayList<Node> platforms = new ArrayList<>();
@@ -47,19 +47,19 @@ public class PlayerModel implements ObservedSubject {
         }
     }
 
-    public int getX() {
+    public double getX() {
         return x;
     }
 
-    public void setX(int x) {
+    public void setX(double x) {
         this.x = x;
     }
 
-    public int getY() {
+    public double getY() {
         return y;
     }
 
-    public void setY(int y) {
+    public void setY(double y) {
         this.y = y;
     }
 
