@@ -23,15 +23,23 @@ public class EntityCreator {
     // obstacle blocks
     public static final String GLACIER_SMALL_ICE_BLOCK_ = "glacier_small_ice_block";
     public static final String GLACIER_LARGE_ICE_BLOCK_ = "glacier_large_ice_block";
+    public static final String DESERT_STONE_BLOCK_ = "desert_stone_block";
+    public static final String DESERT_CACTUS_BLOCK_ = "desert_cactus_block";
 
     // feature blocks
     public static final String GLACIER_ICE_BLOCK_ = "glacier_ice_block";
     public static final String GLACIER_SNOW_BLOCK_ = "glacier_snow_block";
 
+    // enemy blocks
+    public static final String FIRE_DRAGON_ = "fire_dragon";
+    public static final String MUMMY_ = "mummy";
+
     // destination
     public static final String IGLOO_ = "igloo";
     public static final String OASIS_ = "oasis";
 
+    // movable object blocks
+    public static final String FLYING_CARPET_ = "flying_carpet";
 
 //    /**
 //     * default constructor to create an entity object
@@ -80,11 +88,18 @@ public class EntityCreator {
             // platform blocks
             case GLACIER_PLATFORM_BLOCK_, DESERT_PLATFORM_BLOCK_, FOREST_PLATFORM_BLOCK_ -> new PlatformBlock(x, y, w, h, loadImageView(entityType, tag));
             // obstacle blocks
-            case GLACIER_SMALL_ICE_BLOCK_, GLACIER_LARGE_ICE_BLOCK_ -> new ObstacleBlock(x, y, w, h, loadImageView(entityType, tag));
+            case GLACIER_SMALL_ICE_BLOCK_, GLACIER_LARGE_ICE_BLOCK_, DESERT_STONE_BLOCK_, DESERT_CACTUS_BLOCK_ -> new ObstacleBlock(x, y, w, h, loadImageView(entityType, tag));
+            // feature blocks
             case GLACIER_ICE_BLOCK_ -> new FeatureBlock(x, y, w, h, FeatureBlock.ICE_BLOCK, loadImageView(entityType, tag));
             case GLACIER_SNOW_BLOCK_ -> new FeatureBlock(x, y, w, h, FeatureBlock.SNOW_BLOCK, loadImageView(entityType, tag));
             // destination
             case IGLOO_, OASIS_ -> new DestinationBlock(x, y, w, h, Start.gameState.map.index, loadImageView(entityType, tag));
+            // enemy blocks
+            case FIRE_DRAGON_ -> new FireDragonBlock(x, y, w, h, loadImageView(entityType, tag), Start.rangeIterator.next());
+            case MUMMY_ -> new MummyBlock(x, y, w, h, loadImageView(entityType, tag), Start.rangeIterator.next());
+            // moving object blocks
+            case FLYING_CARPET_ -> new FlyingCarpetBlock(x, y, w, h, loadImageView(entityType, tag), Start.rangeIterator.next());
+
             default -> throw new IllegalStateException("Unexpected value: " + entityType);
         };
     }
@@ -98,6 +113,7 @@ public class EntityCreator {
      */
     public static Image loadImageView(String entityType, int tag) {
         switch (entityType) {
+            // player
             case PLAYER_ -> {
                 String url = "/images/character/Character" + tag + ".png";
 
@@ -105,6 +121,7 @@ public class EntityCreator {
                         Start.class.getResourceAsStream(url)
                 ));
             }
+
             // supply
             case BOTTLE_WATER_ -> {
                 String url = "/images/supply/water.png";
@@ -127,6 +144,7 @@ public class EntityCreator {
                         Start.class.getResourceAsStream(url)
                 ));
             }
+            // platform blocks
             case GLACIER_PLATFORM_BLOCK_ -> {
                 String url = "/images/platform/glacier_platform_block3.png";
 
@@ -136,7 +154,7 @@ public class EntityCreator {
             }
             case DESERT_PLATFORM_BLOCK_ -> {
                 // ! TODO change the image to the correct one
-                String url = "/images/platform/glacier_platform_block3.png";
+                String url = "/images/platform/desert_platform_block2.png";
 
                 return new Image(Objects.requireNonNull(
                         Start.class.getResourceAsStream(url)
@@ -150,9 +168,24 @@ public class EntityCreator {
                         Start.class.getResourceAsStream(url)
                 ));
             }
+            // obstacle blocks
             // they are the same image but with different size
             case GLACIER_SMALL_ICE_BLOCK_, GLACIER_LARGE_ICE_BLOCK_ -> {
                 String url = "/images/obstacle/glacier_ice_block.png";
+
+                return new Image(Objects.requireNonNull(
+                        Start.class.getResourceAsStream(url)
+                ));
+            }
+            case DESERT_STONE_BLOCK_ -> {
+                String url = "/images/obstacle/desert_stone.png";
+
+                return new Image(Objects.requireNonNull(
+                        Start.class.getResourceAsStream(url)
+                ));
+            }
+            case DESERT_CACTUS_BLOCK_ -> {
+                String url = "/images/obstacle/desert_cactus.png";
 
                 return new Image(Objects.requireNonNull(
                         Start.class.getResourceAsStream(url)
@@ -182,7 +215,30 @@ public class EntityCreator {
             }
             case OASIS_ -> {
                 // ! TODO change the image to the correct one
-                String url = "/images/destination/glacier_igloo2.png";
+                String url = "/images/destination/desert_oasis.png";
+
+                return new Image(Objects.requireNonNull(
+                        Start.class.getResourceAsStream(url)
+                ));
+            }
+            // enemy blocks
+            case FIRE_DRAGON_ -> {
+                String url = "/images/enemy/desert_firedragon.png";
+
+                return new Image(Objects.requireNonNull(
+                        Start.class.getResourceAsStream(url)
+                ));
+            }
+            case MUMMY_ -> {
+                String url = "/images/enemy/desert_mummy.png";
+
+                return new Image(Objects.requireNonNull(
+                        Start.class.getResourceAsStream(url)
+                ));
+            }
+            // moving object blocks
+            case FLYING_CARPET_ -> {
+                String url = "/images/moving_objects/desert_flying_carpet.png";
 
                 return new Image(Objects.requireNonNull(
                         Start.class.getResourceAsStream(url)

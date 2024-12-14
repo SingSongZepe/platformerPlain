@@ -21,6 +21,8 @@ public class PlayerController {
     private List<FeatureNode> featureNodes;
     private List<SupplyNode> supplyNodes;
     private DestinationNode destinationNode;
+    private List<MovableNode> movableNodes;
+    private List<EnemyNode> enemyNodes;
     private HashMap<KeyCode, Boolean> keys = new HashMap<>();
     private int levelWidth;
     private int index; // index of character that player selected
@@ -34,6 +36,8 @@ public class PlayerController {
                             ArrayList<FeatureNode> featureNodes,
                             ArrayList<SupplyNode> supplyNodes,
                             DestinationNode destinationNode,
+                            ArrayList<MovableNode> movableNodes,
+                            ArrayList<EnemyNode> enemyNodes,
                             int levelWidth, int index) {
 
         playerModel = new PlayerModel();
@@ -44,6 +48,9 @@ public class PlayerController {
         this.featureNodes = featureNodes;
         this.supplyNodes = supplyNodes;
         this.destinationNode = destinationNode;
+        this.movableNodes = movableNodes;
+        this.enemyNodes = enemyNodes;
+
         this.levelWidth = levelWidth;
         this.index = index;
         this.root = root;
@@ -104,6 +111,15 @@ public class PlayerController {
         if (destinationNode.node.getBoundsInParent().contains(midPlayerX, playerModel.getY() + 70)) {
             // you win the game
             Start.gameWin();
+            return;
+        }
+
+        // check if the player being attacked by enemy
+        for (EnemyNode enemyNode: enemyNodes) {
+            if (enemyNode.node.getBoundsInParent().intersects(playerView.getPlayerNode().getBoundsInParent())) {
+                Start.gameOver();
+                return;
+            }
         }
     }
 
@@ -171,10 +187,17 @@ public class PlayerController {
                 for (Node platform : platforms) {
                     platform.setTranslateX(platform.getTranslateX() + displacement);
                 }
+
+                // move supplies and destination
                 for (SupplyNode supplyNode: supplyNodes) {
                     supplyNode.node.setTranslateX(supplyNode.node.getTranslateX() + displacement);
                 }
                 destinationNode.node.setTranslateX(destinationNode.node.getTranslateX() + displacement);
+
+                // move movable objects
+                for (MovableNode movableNode: movableNodes) {
+                    if (!platforms.contains(movableNode.node)) movableNode.node.setTranslateX(movableNode.node.getTranslateX() + displacement);
+                }
             } else {
                 // otherwise, update player position
                 playerModel.setX((int) (playerModel.getX() - displacement));

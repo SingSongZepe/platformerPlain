@@ -16,7 +16,7 @@ public class PlayerModel implements ObservedSubject {
     private ArrayList<Node> platforms = new ArrayList<>();
     private final List<Observer> observers;
     public PlayerModel(){
-        observers=new ArrayList<>();
+        observers = new ArrayList<>();
     }
     /**
      * add observer to list of observer
