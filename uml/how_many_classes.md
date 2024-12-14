@@ -1,5 +1,6 @@
 # How many classes are maintained
 **学校要求“High-Level Class Diagram with only Classes name and Package(s)”**
+
 **包不一定要明确，包含类名和关系即可**
 <img width="347" alt="classdiagram2" src="https://github.com/user-attachments/assets/29c2ebd9-82d9-4958-bcae-27ec2ef3dc3c" />
 
