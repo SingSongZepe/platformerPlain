@@ -1,6 +1,7 @@
 com\example\platformerplain\object\Map.class
 com\example\platformerplain\controller\HomeController.class
 com\example\platformerplain\object\Character.class
+com\example\platformerplain\object\EntitySelector.class
 com\example\platformerplain\SettingApplication.class
 com\example\platformerplain\controller\StartController.class
 multiplewindows\Main.class
@@ -40,11 +41,11 @@ com\example\platformerplain\object\Player.class
 com\example\platformerplain\test\TestScoreManager.class
 com\example\platformerplain\utils\RandomNumberGenerator.class
 com\example\platformerplain\object\DestinationBlock.class
+com\example\platformerplain\Start$1.class
 com\example\platformerplain\controller\InformationController.class
 com\example\platformerplain\view\PlayerView.class
 com\example\platformerplain\utils\Counter$1.class
 com\example\platformerplain\utils\File.class
-com\example\platformerplain\utils\InitContentAdapter$1.class
 com\example\platformerplain\object\Entity.class
 com\example\platformerplain\object\ScoreManager.class
 multiplewindows\CharacterController.class

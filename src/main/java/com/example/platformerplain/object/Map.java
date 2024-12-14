@@ -47,10 +47,10 @@ public class Map {
             // if there are more pictures for each map, add them here.
             // their names should be the same as the map name + a number.
             // and extension should be .jpg
-            case MAP_1_INDEX -> MAP_1_NAME + RandomNumberGenerator.getRandomInt(1, 1);
-            case MAP_2_INDEX -> MAP_2_NAME + RandomNumberGenerator.getRandomInt(1, 1);
-            case MAP_3_INDEX -> MAP_3_NAME + RandomNumberGenerator.getRandomInt(1, 1);
-            default -> MAP_1_NAME + RandomNumberGenerator.getRandomInt(1, 3);
+            case MAP_1_INDEX -> "/images/background/" + MAP_1_NAME + RandomNumberGenerator.getRandomInt(1, 1) + ".jpg";
+            case MAP_2_INDEX -> "/images/background/" + MAP_2_NAME + RandomNumberGenerator.getRandomInt(1, 1) + ".jpg";
+            case MAP_3_INDEX -> "/images/background/" + MAP_3_NAME + RandomNumberGenerator.getRandomInt(1, 1) + ".jpg";
+            default -> "/images/background/" + MAP_1_NAME + RandomNumberGenerator.getRandomInt(1, 1) + ".jpg";
         };
     }
 }

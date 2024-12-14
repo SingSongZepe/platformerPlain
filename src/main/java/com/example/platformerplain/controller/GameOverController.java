@@ -32,7 +32,7 @@ public class GameOverController {
     @FXML
     public void initialize() {
         backgroundImage.setImage(new Image(Objects.requireNonNull(
-                Start.class.getResourceAsStream("/images/background/" + Map.getRandomMapBackground(gameState.map.index) + ".jpg")
+                Start.class.getResourceAsStream(Map.getRandomMapBackground(gameState.map.index))
         )));
 
         backgroundImage.setFitWidth(1280); // Set the width to 1280

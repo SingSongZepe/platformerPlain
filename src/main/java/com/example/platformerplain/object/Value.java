@@ -7,4 +7,6 @@ public class Value {
     // relative path to the file containing the high scores
     public static final String SCORES_FILE = "src/main/resources/file/scores.dat";
 
+    // mediaplayer volume
+    public static final float MEDIAPLAYER_VOLUME = 0.1f;
 }

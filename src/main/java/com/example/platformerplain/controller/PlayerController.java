@@ -97,7 +97,11 @@ public class PlayerController {
         }
 
         // check whether the player is at the place of destination
-        if (destinationNode.node.getBoundsInParent().intersects(playerView.getPlayerNode().getBoundsInParent())) {
+        double playerMinX = playerView.getPlayerNode().getTranslateX();
+        double playerMaxX = playerMinX + playerView.getPlayerNode().getBoundsInLocal().getWidth();
+        double midPlayerX = (playerMinX + playerMaxX) / 2;
+
+        if (destinationNode.node.getBoundsInParent().contains(midPlayerX, playerModel.getY() + 70)) {
             // you win the game
             Start.gameWin();
         }
@@ -161,17 +165,19 @@ public class PlayerController {
 
             // if the player is in the center range, move platforms instead of player
             //  && platformMinX <= 5 && platformMaxX >= 1275
+            double displacement = speed_factor * (movingRight ? -1 : 1);
             if (isInCenterRange) {
                 // move platforms
                 for (Node platform : platforms) {
-                    platform.setTranslateX(platform.getTranslateX() + speed_factor * (movingRight ? -1 : 1));
+                    platform.setTranslateX(platform.getTranslateX() + displacement);
                 }
                 for (SupplyNode supplyNode: supplyNodes) {
-                    supplyNode.node.setTranslateX(supplyNode.node.getTranslateX() + speed_factor * (movingRight ? -1 : 1));
+                    supplyNode.node.setTranslateX(supplyNode.node.getTranslateX() + displacement);
                 }
+                destinationNode.node.setTranslateX(destinationNode.node.getTranslateX() + displacement);
             } else {
                 // otherwise, update player position
-                playerModel.setX((int) (playerModel.getX() + speed_factor * (movingRight ? 1 : -1)));
+                playerModel.setX((int) (playerModel.getX() - displacement));
                 playerView.getPlayerNode().setTranslateX(playerModel.getX());
             }
         }

@@ -10,6 +10,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.control.MenuItem;
 import javafx.scene.input.KeyCode;
 import javafx.scene.layout.*;
 import javafx.stage.Stage;
@@ -18,6 +19,7 @@ import java.net.URL;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Objects;
 
 
 /**
@@ -37,6 +39,17 @@ public class Start extends Application {
         super.init();
         instance = this; // Set the singleton instance
         gameState = new GameState();
+
+        timer = new AnimationTimer() {
+            @Override
+            public void handle(long now) {
+                try {
+                    playerController.update();
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+        };
     }
 
     /**
@@ -63,6 +76,8 @@ public class Start extends Application {
 
     public static PlayerController playerController;
     public static AnimationTimer timer;
+
+    public static AnimationTimer timerLabelTimer;
 
     /**
      * Start the game by loading the start scene.
@@ -141,8 +156,18 @@ public class Start extends Application {
         InitContent.initContent();
 
         // according to the map_index, load the corresponding bgm
-        Media audioMedia = new Media("/sounds/");
+        Media audioMedia = switch (gameState.map.index) {
+            case 1 -> // level 1 glacier
+                    new Media(Objects.requireNonNull(Start.class.getResource("/sounds/glacier_bgm.mp3")).toExternalForm());
+            case 2 -> // level 2 desert
+                    new Media(Objects.requireNonNull(Start.class.getResource("/sounds/desert_bgm.mp3")).toExternalForm());
+            case 3 -> // level 3 forest
+                    new Media(Objects.requireNonNull(Start.class.getResource("/sounds/glacier_bgm.mp3")).toExternalForm());
+            default -> // default level 1 glacier
+                    throw new RuntimeException("Invalid map index: " + gameState.map.index);
+        };
         mediaPlayer = new MediaPlayer(audioMedia);
+        mediaPlayer.setVolume(Value.MEDIAPLAYER_VOLUME);
         mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);
         mediaPlayer.play();
     }
@@ -156,9 +181,8 @@ public class Start extends Application {
         clearContentStates();
         gameState = new GameState();
 
-        if (timer != null) {
-            timer.stop();
-        }
+        timer.stop();
+
         Start.setRoot("home");
     }
 
@@ -169,12 +193,11 @@ public class Start extends Application {
      */
     public static void gameOver() throws IOException {
         // clear all the data of a map(game)
-        clearContentStates();
         gameState = new GameState();
 
-        if (timer != null) {
-            timer.stop();
-        }
+        timer.stop();
+
+        clearContentStates();
         Start.setRoot("game_over");
     }
 
@@ -187,19 +210,48 @@ public class Start extends Application {
 
         // there we add the time used to gameState
         String timeFormatted = timerLabel.getText().split(" ")[2];
-        // covert mm:ss to seconds
-        int time = Integer.parseInt(timeFormatted.split(":")[0]) * 60 + Integer.parseInt(timeFormatted.split(":")[1]);
-        gameState.spentTime = time;
 
-        if (timer != null) {
-            timer.stop();
+        // covert mm:ss to seconds
+        // use regex to extract the time from the label
+        String timePattern = "(\\d+):(\\d+)";
+        java.util.regex.Pattern pattern = java.util.regex.Pattern.compile(timePattern);
+        java.util.regex.Matcher matcher = pattern.matcher(timeFormatted);
+
+        int totalSeconds = 0;
+
+        if (matcher.find()) {
+            int minutes = Integer.parseInt(matcher.group(1));
+            int seconds = Integer.parseInt(matcher.group(2));
+
+            totalSeconds = minutes * 60 + seconds;
+        } else {
+            throw new RuntimeException("Invalid time format: " + timeFormatted);
         }
+        int spentTime = GameState.TOTAL_TIME - totalSeconds;
+        gameState.spentTime = spentTime;
+
+        timer.stop();
+
         // clear all the data of a map(game)
         clearContentStates();
         Start.setRoot("score");
     }
 
     private static void clearContentStates() {
+
+        // Stop and release the media player
+        if (mediaPlayer != null) {
+            mediaPlayer.stop();
+            mediaPlayer.dispose();
+            mediaPlayer = null;
+        }
+
+        // Stop and release the timerLabelTimer
+        if (timerLabelTimer != null) {
+            timerLabelTimer.stop();
+            timerLabelTimer = null;
+        }
+
         platforms.clear();
         featureNodes.clear();
         gameRoot = new Pane();
