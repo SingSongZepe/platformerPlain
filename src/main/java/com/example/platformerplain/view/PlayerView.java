@@ -37,7 +37,7 @@ public class PlayerView implements Observer {
     @Override
     public void update() {
         // update the player view
-        drawCharacter(playerModel.getX(), playerModel.getY());
+        drawCharacter((int) playerModel.getX(), (int) playerModel.getY());
     }
 
     private void drawCharacter(int x, int y) {
