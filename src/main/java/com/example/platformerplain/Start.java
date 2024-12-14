@@ -139,6 +139,12 @@ public class Start extends Application {
         scene.setRoot(appRoot);
 
         InitContent.initContent();
+
+        // according to the map_index, load the corresponding bgm
+        Media audioMedia = new Media("/sounds/");
+        mediaPlayer = new MediaPlayer(audioMedia);
+        mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);
+        mediaPlayer.play();
     }
 
     /**

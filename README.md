@@ -268,19 +268,11 @@ ps. 今天没多少时间，只写了一些代码。
 
 > 25x50
 
-<<<<<<< HEAD
 5-1. level1地图设计
 
 > 用compass这个CAD软件设计
 > 
-> ![](F:\MyProjects\receive\java_design_mode\code\PlatformerPlain_main\readme_images\Snipaste_2024-12-14_03-52-46.png)
-=======
-5. level1地图设计
-
-> 用compass这个CAD软件设计
-> 
 > ![](.\readme_images\Snipaste_2024-12-14_03-52-46.png)
->>>>>>> 92e3ab4 (merge a file)
 > 
 > 可得出其levelData为
 > 
@@ -309,9 +301,8 @@ ps. 今天没多少时间，只写了一些代码。
 > 11110001 11111111 11444000 11110001 11111555 00011111 00000555 11111111 111
 > 
 > 0-7      8-15     16-23    24-31    32-39    40-47    48-55    56-63    64-66
-<<<<<<< HEAD
 >
->
+
 5-2.  level2地图设计
 > 00000000 00000111 00011110 00000000 11111100 00000000 00000000 00000000 000
 >
@@ -339,7 +330,7 @@ ps. 今天没多少时间，只写了一些代码。
 >
 > 0-7 8-15 16-23 24-31 32-39 40-47 48-55 56-63 64-66
 =======
->>>>>>> 92e3ab4 (merge a file)
+
 
 6. 定义不同level的platform的tag
 
@@ -349,21 +340,14 @@ ps. 今天没多少时间，只写了一些代码。
 
 7. 由于没有合适的冰块素材，决定将下面这个冰块通过变成120x120像素以表示大冰块，并且60x60表示小冰块
 
-<<<<<<< HEAD
-> ![](./src\main\resources\images\obstacle\glacier_iceblock.png)
-=======
 > ![](./src\main\resources\images\obstacle\glacier_ice_block.png)
->>>>>>> 92e3ab4 (merge a file)
+
 
 8. 添加了game_over.fxml和controller，当游戏失败的时候展示
 
 9. 定义冰面方块，使用这个方块作为冰面方块，当玩家在上面行走的时候，加速度（按d）会增大，减速度（不按）减小，由于没有惯性系统，没有加速度概念，所以定义在该方块上移动时比在普通方块上移动单位时间长度上时间的比值为1.5 : 1
 
-<<<<<<< HEAD
-> ![](F:\MyProjects\receive\java_design_mode\code\sync\platformerPlain\src\main\resources\images\feature\glacier_ice_speed_up.jpg)
-=======
 > ![](.\src\main\resources\images\feature\glacier_ice_block.jpg)
->>>>>>> 92e3ab4 (merge a file)
 
 10. 由于在两个地图中都有一些feature blocks，例如在雪地地图上，有冰块和雪块，在沙漠地图上有移动的飞毯。
 
@@ -378,9 +362,5 @@ ps. 今天没多少时间，只写了一些代码。
 14. 实现了拾取supply的逻辑
 
 15. 素材图问题
+> 沙漠的终点绿洲不符合，太大了，需要一个单体就够，就像雪屋那样的最好。
 
-<<<<<<< HEAD
-> 沙漠的终点绿洲不符合，太大了，需要一个单体就够，就像雪屋那样的最好。
-=======
-> 沙漠的终点绿洲不符合，太大了，需要一个单体就够，就像雪屋那样的最好。
->>>>>>> 92e3ab4 (merge a file)
