@@ -33,6 +33,14 @@ public class PlayerController {
     // for mirror
     private boolean isMovingRight = true;
 
+    /**
+     * this is the constructor of PlayerController
+     * playController controls the player's movement and actions
+     * @param scene
+     * @param root
+     * @param levelWidth
+     * @param index
+     */
     public PlayerController(Scene scene, Pane root,
 //                            ArrayList<Node> platforms,
 //                            ArrayList<FeatureNode> featureNodes,
@@ -58,6 +66,10 @@ public class PlayerController {
         this.root = root;
     }
 
+    /**
+     * update the player's position and actions
+     * @throws IOException
+     */
     public void update() throws IOException {
         if (isPressed(KeyCode.W) && playerModel.getY() >= 5) {
             jumpPlayer();
@@ -125,10 +137,19 @@ public class PlayerController {
         }
     }
 
+    /**
+     * when player press a key, check if it is pressed or not
+     * @param keyCode
+     * @return
+     */
     private boolean isPressed(KeyCode keyCode) {
         return keys.getOrDefault(keyCode, false);
     }
 
+    /**
+     * move right or left the player by a certain value
+     * @param value
+     */
     private void movePlayerX(int value) {
         boolean movingRight = value > 0;
 
@@ -208,6 +229,10 @@ public class PlayerController {
         }
     }
 
+    /**
+     *
+     * @param value
+     */
     private void movePlayerY(int value) {
         boolean movingDown = value > 0;
         for (int i = 0; i < Math.abs(value); i++) {
@@ -240,6 +265,9 @@ public class PlayerController {
         }
     }
 
+    /**
+     * when player press W, jump
+     */
     private void jumpPlayer() {
         if (playerModel.isCanJump()) {
             playerModel.setPlayerVelocity(playerModel.getPlayerVelocity().add(0, -30));
@@ -247,6 +275,11 @@ public class PlayerController {
         }
     }
 
+    /**
+     * initialize the player's position
+     * @param x
+     * @param y
+     */
     public void initPlayer(int x, int y) {
         playerModel.setX(x);
         playerModel.setY(y);

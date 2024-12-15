@@ -14,7 +14,6 @@ public class PlayerView implements Observer {
     private ImageView playerImageView; // 使用ImageView来显示角色图像
     private Pane paneRoot;
 
-    //
 //    private final double originalWidth = 500; // the original width
 //    private final double originalHeight = 980; // the original height
     private final double scaledWidth = 25; // scaled width
@@ -40,6 +39,11 @@ public class PlayerView implements Observer {
         drawCharacter((int) playerModel.getX(), (int) playerModel.getY());
     }
 
+    /**
+     * draw the character at the given position
+     * @param x
+     * @param y
+     */
     private void drawCharacter(int x, int y) {
         playerImageView.setTranslateX(x); // set the x-coordinate of the image view
         playerImageView.setTranslateY(y); // set the y-coordinate of the image view
@@ -63,10 +67,6 @@ public class PlayerView implements Observer {
                 getClass().getResourceAsStream(url))
         );
 
-        // 计算缩放后的高度来保持纵横比
-//        double scaleFactor = scaledWidth / originalWidth;
-//        scaledHeight = originalHeight * scaleFactor;
-
         playerImageView = new ImageView(characterImage);
         playerImageView.setFitWidth(scaledWidth);
         playerImageView.setFitHeight(scaledHeight);
@@ -77,7 +77,10 @@ public class PlayerView implements Observer {
         return playerImageView;
     }
 
-    // mirror inversion of the player view
+    /**
+     * the method to mirror the player view horizontally
+     * if the player view is already mirrored, it will be set back to its original state
+     */
     public void mirror() {
         if (playerImageView.getScaleX() == -1) {
             playerImageView.setScaleX(1);

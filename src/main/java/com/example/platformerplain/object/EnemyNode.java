@@ -8,6 +8,11 @@ public class EnemyNode extends MovableNode {
 
     public String enemyType;
 
+    /**
+     * constructor for EnemyNode
+     * @param enemyType
+     * @param node
+     */
     public EnemyNode(String enemyType, Node node) {
         this.node = node;
         this.enemyType = enemyType;

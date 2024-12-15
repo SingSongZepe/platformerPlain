@@ -23,16 +23,29 @@ public class Character {
     public int index;
     public String name;
 
+    /**
+     * constructor with default values
+     */
     public Character() {
         this.index = CHARACTER_1_INDEX;
         this.name = CHARACTER_1_NAME;
     }
 
+    /**
+     * constructor with index and name
+     * @param index
+     * @param name
+     */
     public Character(int index, String name) {
         this.index = index;
         this.name = name;
     }
 
+    /**
+     * get character name by index
+     * @param index
+     * @return
+     */
     public static String getNameByIndex(int index) {
         return switch (index) {
             case CHARACTER_1_INDEX -> CHARACTER_1_NAME;

@@ -41,32 +41,32 @@ public class EntityCreator {
     // movable object blocks
     public static final String FLYING_CARPET_ = "flying_carpet";
 
-//    /**
-//     * default constructor to create an entity object
-//     * tag means the same entity but different variations
-//     * for example, different character, there are 4 variations of character
-//     * @param entityType string representing the type of entity to create
-//     * @param x          position of the entity on the x-axis
-//     * @param y          position of the entity on the y-axis
-//     * @param w          width of the entity
-//     * @param h          height of the entity
-//     * param tag         default tag is 1
-//     * @return
-//     */
-//    public static Entity createEntity(String entityType, int x, int y, int w, int h) {
-//        return switch (entityType) {
-//            case PLAYER_ -> new Player(x, y, w, h, loadImageView(entityType, 1));
-//            case BOTTLE_WATER_ -> new Player(x, y, w, h, loadImageView(entityType, 1));
-//            // platform blocks
-//            case GLACIER_PLATFORM_BLOCK_ -> new PlatformBlock(x, y, w, h, loadImageView(entityType, 1));
-//            case DESERT_PLATFORM_BLOCK_ -> new PlatformBlock(x, y, w, h, loadImageView(entityType, 4));
-//            case FOREST_PLATFORM_BLOCK_ -> new PlatformBlock(x, y, w, h, loadImageView(entityType, 9999));
-//            // obstacle blocks
-//            case GLACIER_SMALL_ICE_BLOCK_ -> new PlatformBlock(x, y, w, h, loadImageView(entityType, 1));
-//            case GLACIER_LARGE_ICE_BLOCK_ -> new PlatformBlock(x, y, w, h, loadImageView(entityType, 1));
-//            default -> throw new IllegalStateException("Unexpected value: " + entityType);
-//        };
-//    }
+    /**
+     * default constructor to create an entity object
+     * tag means the same entity but different variations
+     * for example, different character, there are 4 variations of character
+     * @param entityType string representing the type of entity to create
+     * @param x          position of the entity on the x-axis
+     * @param y          position of the entity on the y-axis
+     * @param w          width of the entity
+     * @param h          height of the entity
+     * param tag         default tag is 1
+     * @return
+     */
+    public static Entity createEntity(String entityType, int x, int y, int w, int h) {
+        return switch (entityType) {
+            case PLAYER_ -> new Player(x, y, w, h, loadImageView(entityType, 1));
+            case BOTTLE_WATER_ -> new Player(x, y, w, h, loadImageView(entityType, 1));
+            // platform blocks
+            case GLACIER_PLATFORM_BLOCK_ -> new PlatformBlock(x, y, w, h, loadImageView(entityType, 1));
+            case DESERT_PLATFORM_BLOCK_ -> new PlatformBlock(x, y, w, h, loadImageView(entityType, 4));
+            case FOREST_PLATFORM_BLOCK_ -> new PlatformBlock(x, y, w, h, loadImageView(entityType, 9999));
+            // obstacle blocks
+            case GLACIER_SMALL_ICE_BLOCK_ -> new PlatformBlock(x, y, w, h, loadImageView(entityType, 1));
+            case GLACIER_LARGE_ICE_BLOCK_ -> new PlatformBlock(x, y, w, h, loadImageView(entityType, 1));
+            default -> throw new IllegalStateException("Unexpected value: " + entityType);
+        };
+    }
 
     /**
      * constructor to create an entity object with a tag

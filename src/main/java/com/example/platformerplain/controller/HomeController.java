@@ -25,21 +25,41 @@ public class HomeController {
     public ImageView Home_closePage;
     public Button Home_Start_button;
 
+    /**
+     * javafx.fxml.Initializable interface implementation
+     * @param actionEvent
+     * @throws IOException
+     */
     @FXML
     public void switchOnClicked_Exit(MouseEvent actionEvent) throws IOException {
         Start.getInstance().setRoot("start");
     }
 
+    /**
+     * This method is called when the user clicks on the maps button.
+     * @param actionEvent
+     * @throws IOException
+     */
     @FXML
     public void switchOnClicked_Maps(ActionEvent actionEvent) throws IOException {
         Start.getInstance().setRoot("maps");
     }
 
+    /**
+     * This method is called when the user clicks on the information button.
+     * @param actionEvent
+     * @throws IOException
+     */
     @FXML
     public void switchOnClicked_Information(ActionEvent actionEvent) throws IOException {
         Start.getInstance().setRoot("information");
     }
 
+    /**
+     * This method is called when the user clicks on the option button.
+     * @param actionEvent
+     * @throws IOException
+     */
     @FXML
     public void switchOnClicked_Option(ActionEvent actionEvent) throws IOException {
         Start.getInstance().setRoot("option");

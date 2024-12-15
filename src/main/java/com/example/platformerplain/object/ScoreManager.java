@@ -10,15 +10,6 @@ import java.util.Objects;
 
 public class ScoreManager {
 
-//    private static File getFileFromResources(String fileName) {
-//        ClassLoader classLoader = Start.class.getClassLoader();
-//        URL resource = classLoader.getResource(fileName);
-//        if (resource == null) {
-//            throw new IllegalArgumentException("File not found: " + fileName);
-//        }
-//        return new File(resource.getFile());
-//    }
-
     /**
      * Serialize scores to file
      * @param scores

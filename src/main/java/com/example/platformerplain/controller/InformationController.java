@@ -18,20 +18,40 @@ public class InformationController {
     public Button info_level2button;
     public Pane ContentArea;
 
+    /**
+     * This method is used to initialize the controller class.
+     * @param mouseEvent
+     * @throws IOException
+     */
     public void Switch_toHome(MouseEvent mouseEvent) throws IOException {
         getInstance().setRoot("home");
     }
 
+    /**
+     * This method is used to switch to the intro page.
+     * @param actionEvent
+     * @throws IOException
+     */
     public void switch_intro(MouseEvent actionEvent) throws IOException {
         ContentArea.getChildren().clear();
         ContentArea.getChildren().add(Start.loadFXML("information_subpage1"));
     }
 
+    /**
+     * This method is used to switch to the level 1 page.
+     * @param actionEvent
+     * @throws IOException
+     */
     public void switch_level1(MouseEvent actionEvent) throws IOException {
         ContentArea.getChildren().clear();
         ContentArea.getChildren().add(Start.loadFXML("information_subpage2"));
     }
 
+    /**
+     * This method is used to switch to the level 2 page.
+     * @param actionEvent
+     * @throws IOException
+     */
     public void switch_level2(MouseEvent actionEvent) throws IOException {
         ContentArea.getChildren().clear();
         ContentArea.getChildren().add(Start.loadFXML("information_subpage3"));

@@ -32,7 +32,6 @@ com\example\platformerplain\controller\MapsController.class
 com\example\platformerplain\object\FlyingCarpetNode.class
 com\example\platformerplain\controller\InformationSubpage3Controller.class
 com\example\platformerplain\utils\ScoreCalculator.class
-com\example\platformerplain\controller\SettingController.class
 com\example\platformerplain\object\Value.class
 com\example\platformerplain\LevelData.class
 com\example\platformerplain\pattern\Observer.class

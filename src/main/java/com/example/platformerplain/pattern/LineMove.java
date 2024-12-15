@@ -11,6 +11,13 @@ public class LineMove extends Movable {
     public int velocity;
     public Boolean turnAround;
 
+    /**
+     * Constructor for LineMove class
+     * @param range
+     * @param node
+     * @param velocity
+     * @param turnAround
+     */
     public LineMove(int[] range, Node node, int velocity, Boolean turnAround) {
         this.range = range;
         this.node = node;
@@ -20,6 +27,9 @@ public class LineMove extends Movable {
         this.turnAround = turnAround;
     }
 
+    /**
+     * the real implementation of the step_move method for LineMove class
+     */
     @Override
     public void step_move() {
         if (movingRight){

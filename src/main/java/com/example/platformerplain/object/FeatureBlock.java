@@ -12,6 +12,15 @@ public class FeatureBlock extends Entity {
 
     public String featureType;
 
+    /**
+     * constructor for feature block
+     * @param x
+     * @param y
+     * @param w
+     * @param h
+     * @param featureType
+     * @param image
+     */
     public FeatureBlock(int x, int y, int w, int h, String featureType, Image image) {
         super(x, y, w, h, image);
         this.featureType = featureType;
