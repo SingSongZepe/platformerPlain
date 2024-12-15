@@ -3,10 +3,12 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="359.0" prefWidth="481.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.platformerplain.controller.Information_Subpage1_Controller">
-   <children>
-      <Text layoutX="93.0" layoutY="132.0" strokeType="OUTSIDE" strokeWidth="0.0"
-            text="Join &quot;Escape Beyond&quot; and experience two adventure levels with different styles, each level is full of challenges and surprises!"
-            wrappingWidth="325.3629150390625" />
-   </children>
+<AnchorPane prefHeight="359.0" prefWidth="481.0" xmlns="http://javafx.com/javafx/23.0.1"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.example.platformerplain.controller.InformationSubpage1Controller">
+
+   <Text layoutX="93.0" layoutY="132.0" strokeType="OUTSIDE" strokeWidth="0.0"
+         text="Join &quot;Escape Beyond&quot; and experience two adventure levels with different styles, each level is full of challenges and surprises!"
+         wrappingWidth="325.3629150390625"/>
+
 </AnchorPane>
