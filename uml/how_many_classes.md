@@ -52,7 +52,7 @@
 
 - Value
 
-### Utils
+### View
 
 - PlayerView
 

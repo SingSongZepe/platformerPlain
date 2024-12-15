@@ -23,14 +23,17 @@ public class InformationController {
     }
 
     public void switch_intro(ActionEvent actionEvent) throws IOException {
-        getInstance().setRoot("information_subpage1");
+        ContentArea.getChildren().clear();
+        ContentArea.getChildren().add(Start.loadFXML("information_subpage1"));
     }
 
     public void switch_level1(ActionEvent actionEvent) throws IOException {
-        getInstance().setRoot("information_subpage2");
+        ContentArea.getChildren().clear();
+        ContentArea.getChildren().add(Start.loadFXML("information_subpage1"));
     }
 
     public void switch_level2(ActionEvent actionEvent) throws IOException {
-        getInstance().setRoot("information_subpage3");
+        ContentArea.getChildren().clear();
+        ContentArea.getChildren().add(Start.loadFXML("information_subpage1"));
     }
 }
