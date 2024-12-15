@@ -1,0 +1,279 @@
+package com.example.platformerplain;
+
+import com.example.platformerplain.controller.PlayerController;
+import com.example.platformerplain.object.*;
+import com.example.platformerplain.object.MovableNode;
+import com.example.platformerplain.utils.InitContent;
+import com.example.platformerplain.utils.IntArrayIterator;
+import javafx.animation.AnimationTimer;
+import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Label;
+import javafx.scene.input.KeyCode;
+import javafx.scene.layout.*;
+import javafx.stage.Stage;
+import javafx.scene.media.*;
+import java.net.URL;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Objects;
+
+
+/**
+ * Singleton class that starts the game.
+ * scene is the root node of the game.
+ */
+public class Main extends Application {
+
+    private static Main instance;
+
+    /**
+     * Initialize the game by setting the game state.
+     * @throws Exception if there is any error in initialization
+     */
+    @Override
+    public void init() throws Exception {
+        super.init();
+        instance = this; // Set the singleton instance
+        gameState = new GameState();
+
+        rangeIterator = null;
+
+        timer = new AnimationTimer() {
+            @Override
+            public void handle(long now) {
+                try {
+                    playerController.update();
+                    for (MovableNode movableNode : movableNodes) {
+                        movableNode.step_move();
+                    }
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+        };
+    }
+
+    /**
+     * Return the singleton instance of the game.
+     * @return the singleton instance of the game
+     */
+    public static Main getInstance() {
+        return instance;
+    }
+
+    public static Scene scene;
+    private static MediaPlayer mediaPlayer;
+    // record the information of the condition of the game
+    public static GameState gameState;
+    // use for the game logic
+    private static HashMap<KeyCode, Boolean> keys = new HashMap<KeyCode, Boolean>();
+    public static ArrayList<Node> platforms = new ArrayList<>();
+    public static ArrayList<FeatureNode> featureNodes = new ArrayList<>();
+    public static ArrayList<SupplyNode> supplyNodes = new ArrayList<>();
+    public static DestinationNode destinationNode;
+    //
+    public static ArrayList<MovableNode> movableNodes = new ArrayList<>();
+    public static ArrayList<EnemyNode> enemyNodes = new ArrayList<>();
+
+    public static Pane appRoot = new Pane();
+    public static Pane gameRoot = new Pane();
+    public static Pane uiRoot = new Pane();
+
+    public static PlayerController playerController;
+    public static AnimationTimer timer;
+
+    public static AnimationTimer timerLabelTimer;
+
+    // use to initialize the ranges of movable objects
+    public static IntArrayIterator rangeIterator;
+
+    /**
+     * Start the game by loading the start scene.
+     * @param primaryStage the primary stage of the game
+     */
+    @Override
+    public void start(Stage primaryStage) throws Exception {
+        // start page
+        // ! test here
+        scene = new Scene(loadFXML("start"));
+        primaryStage.setScene(scene);
+        primaryStage.setTitle("ESCAPE BEYOND!");
+        primaryStage.show();
+        // maintain the size of the window
+        // 1280 x 720
+        primaryStage.setResizable(false);
+        primaryStage.setWidth(1280);
+        primaryStage.setHeight(720);
+    }
+
+    /**
+     * Set the root of the scene to the specified fxml file.
+     * @param fxml
+     * @throws IOException
+     */
+    public static void setRoot(String fxml) throws IOException {
+        scene.setRoot(loadFXML(fxml));
+    }
+
+    /**
+     * Load the specified fxml file and return the root node of the scene.
+     * @param fxml the name of the fxml file to load
+     * @return the root node of the scene
+     * @throws IOException if there is any error in loading the fxml file
+     */
+    public static Parent loadFXML(String fxml) throws IOException {
+        URL resource = Main.class.getResource("/fxml/" + fxml + ".fxml");
+        if (resource == null) {
+            System.err.println("Cannot find resource for fxml: " + fxml);
+        }
+        FXMLLoader fxmlLoader = new FXMLLoader(resource);
+        return fxmlLoader.load();
+    }
+
+    /**
+     * Play the background music of the game.
+     */
+    public static void main(String[] args) {
+        launch(args);
+    }
+
+    // make it a static variable to access it.
+    public static final Label timerLabel = new Label();
+
+    // when countdown is over
+    public static void onCountdownEnd(int i) {
+        // Logic to execute when the countdown ends
+        System.out.println("Countdown finished!"); // Placeholder for your callback logic
+        // ! TODO You can add more logic here, like transitioning to another scene or showing a game over screen
+        try {
+            Main.setRoot("game_over");
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    /**
+     * Start the game by loading the game scene.
+     * @throws IOException
+     */
+    public static void startGame() throws IOException {
+        clearContentStates();
+
+        scene.setRoot(appRoot);
+
+        InitContent.initContent();
+
+        // according to the map_index, load the corresponding bgm
+        Media audioMedia = switch (gameState.map.index) {
+            case 1 -> // level 1 glacier
+                    new Media(Objects.requireNonNull(Main.class.getResource("/sounds/glacier_bgm.mp3")).toExternalForm());
+            case 2 -> // level 2 desert
+                    new Media(Objects.requireNonNull(Main.class.getResource("/sounds/desert_bgm.mp3")).toExternalForm());
+            case 3 -> // level 3 forest
+                    new Media(Objects.requireNonNull(Main.class.getResource("/sounds/glacier_bgm.mp3")).toExternalForm());
+            default -> // default level 1 glacier
+                    throw new RuntimeException("Invalid map index: " + gameState.map.index);
+        };
+        mediaPlayer = new MediaPlayer(audioMedia);
+        mediaPlayer.setVolume(Value.MEDIAPLAYER_VOLUME);
+        mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);
+        mediaPlayer.play();
+    }
+
+    /**
+     * Quit the game by clearing all the data of a map(game).
+     * @throws IOException
+     */
+    public static void quitGame() throws IOException {
+        // clear all the data of a map(game)
+        clearContentStates();
+        gameState = new GameState();
+
+        timer.stop();
+
+        Main.setRoot("home");
+    }
+
+    /**
+     * when you lose the game
+     * clear all the data of a map(game) and go to game over scene
+     * @throws IOException
+     */
+    public static void gameOver() throws IOException {
+        // clear all the data of a map(game)
+        gameState = new GameState();
+
+        timer.stop();
+
+        clearContentStates();
+        Main.setRoot("game_over");
+    }
+
+    /**
+     * when you win the game
+     * clear all the data of a map(game) and go to score scene
+     * @throws IOException
+     */
+    public static void gameWin() throws IOException {
+
+        // there we add the time used to gameState
+        String timeFormatted = timerLabel.getText().split(" ")[2];
+
+        // covert mm:ss to seconds
+        // use regex to extract the time from the label
+        String timePattern = "(\\d+):(\\d+)";
+        java.util.regex.Pattern pattern = java.util.regex.Pattern.compile(timePattern);
+        java.util.regex.Matcher matcher = pattern.matcher(timeFormatted);
+
+        int totalSeconds = 0;
+
+        if (matcher.find()) {
+            int minutes = Integer.parseInt(matcher.group(1));
+            int seconds = Integer.parseInt(matcher.group(2));
+
+            totalSeconds = minutes * 60 + seconds;
+        } else {
+            throw new RuntimeException("Invalid time format: " + timeFormatted);
+        }
+        int spentTime = GameState.TOTAL_TIME - totalSeconds;
+        gameState.spentTime = spentTime;
+
+        timer.stop();
+
+        // clear all the data of a map(game)
+        clearContentStates();
+        Main.setRoot("score");
+    }
+
+    private static void clearContentStates() {
+
+        // Stop and release the media player
+        if (mediaPlayer != null) {
+            mediaPlayer.stop();
+            mediaPlayer.dispose();
+            mediaPlayer = null;
+        }
+
+        // Stop and release the timerLabelTimer
+        if (timerLabelTimer != null) {
+            timerLabelTimer.stop();
+            timerLabelTimer = null;
+        }
+
+        platforms.clear();
+        featureNodes.clear();
+        supplyNodes.clear();
+        destinationNode = null;
+        movableNodes.clear();
+        enemyNodes.clear();
+        gameRoot = new Pane();
+        appRoot = new Pane();
+        uiRoot = new Pane();
+        playerController = null;
+    }
+}
