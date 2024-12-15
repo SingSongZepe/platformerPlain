@@ -9,6 +9,13 @@ public class Score implements Serializable {
     private String map_name;
     private String date;
 
+    /**
+     * Constructor for Score object
+     * @param score
+     * @param map_index
+     * @param map_name
+     * @param date
+     */
     public Score(int score, int map_index, String map_name, String date) {
         this.score = score;
         this.map_index = map_index;
@@ -33,7 +40,10 @@ public class Score implements Serializable {
         return date;
     }
 
-    // toString 方法
+    /**
+     * transform the object to a string
+     * @return
+     */
     @Override
     public String toString() {
         return "Score{" +

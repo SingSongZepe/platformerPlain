@@ -27,7 +27,7 @@ public class EntitySelector {
     }
 
     /**
-     * insert entities according to the rules of level 1
+     * insert entities into game models according to the rules of level 1
      * @param c
      * @param j
      * @param i
@@ -119,7 +119,7 @@ public class EntitySelector {
     }
 
     /**
-     * insert entities for level 2
+     * insert entities into game models according to the rules of level 2
      * @param c
      * @param j
      * @param i
@@ -223,6 +223,7 @@ public class EntitySelector {
 
     /**
      * insert entities for level 3
+     * not implemented yet
      * @param c
      * @param j
      * @param i

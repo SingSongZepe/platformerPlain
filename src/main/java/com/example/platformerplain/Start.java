@@ -144,11 +144,14 @@ public class Start extends Application {
     // make it a static variable to access it.
     public static final Label timerLabel = new Label();
 
-    // when countdown is over
+    /**
+     * Callback function when the countdown ends.
+     * and go to game over scene
+     * @param i
+     */
     public static void onCountdownEnd(int i) {
         // Logic to execute when the countdown ends
         System.out.println("Countdown finished!"); // Placeholder for your callback logic
-        // ! TODO You can add more logic here, like transitioning to another scene or showing a game over screen
         try {
             Start.getInstance().setRoot("game_over");
         } catch (IOException e) {
@@ -191,7 +194,7 @@ public class Start extends Application {
     public void quitGame() throws IOException {
         // clear all the data of a map(game)
         clearContentStates();
-        gameState = new GameState();
+        gameState.clear();
 
         timer.stop();
 
@@ -279,6 +282,9 @@ public class Start extends Application {
         getInstance().playerController = null;
     }
 
+    /**
+     * play the corresponding music of the level game
+     */
     public void playMusic() {
         // according to the map_index, load the corresponding bgm
         Media audioMedia = switch (gameState.map.index) {

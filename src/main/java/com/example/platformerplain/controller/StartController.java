@@ -16,6 +16,11 @@ public class StartController {
     public ImageView Background_image;
     public Pane Pane_Start;
 
+    /**
+     * This method is called when the Start button is clicked. It switches to the home screen.
+     * @param actionEvent
+     * @throws IOException
+     */
     public void switchOnClicked(ActionEvent actionEvent) throws IOException {
         getInstance().setRoot("home");
     }

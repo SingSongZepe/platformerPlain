@@ -9,6 +9,15 @@ public class SupplyBlock extends Entity {
 
     public String supplyType;
 
+    /**
+     * Constructor for SupplyBlock class.
+     * @param x
+     * @param y
+     * @param w
+     * @param h
+     * @param supplyType
+     * @param image
+     */
     public SupplyBlock(int x, int y, int w, int h, String supplyType, Image image) {
         super(x, y, w, h, image);
         this.supplyType = supplyType;

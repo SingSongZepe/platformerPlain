@@ -16,6 +16,12 @@ import static com.example.platformerplain.Start.*;
 
 
 public class InitContentAdapter {
+
+    /**
+     * adapter to initialize game content
+     * including background, entities, player, ui, etc.
+     * @throws IOException
+     */
     public void initContent() throws IOException {
         // load background picture
         ImageView bg = getBg();

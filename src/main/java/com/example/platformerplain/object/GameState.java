@@ -17,6 +17,9 @@ public class GameState {
     public static final int TOTAL_TIME = 300;
     public int spentTime;
 
+    /**
+     * Clears the game state.
+     */
     public void clear() {
         this.character = new Character();
         this.map = new Map();
@@ -25,12 +28,17 @@ public class GameState {
         this.spentTime = 0;
     }
 
+    /**
+     * resets the spent time and collected supplies.
+     */
     public void reset() {
         this.spentTime = 0;
         this.collectedSupplies = 0;
     }
 
-    // constructor
+    /**
+     * Constructor for the game state.
+     */
     public GameState() {
         character = new Character();
         map = new Map();

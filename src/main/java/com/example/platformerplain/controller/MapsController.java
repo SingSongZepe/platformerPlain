@@ -32,13 +32,20 @@ public class MapsController {
     @FXML
     public ImageView Maps_closePage;
 
-
+    /**
+     * initializes the controller class
+     * @param actionEvent
+     * @throws IOException
+     */
     @FXML
     public void Switch_toHome(MouseEvent actionEvent) throws IOException {
         getInstance().setRoot("home");
     }
 
-
+    /**
+     * changes the effect of the background image of the maps page
+     * @param event
+     */
     @FXML
     public void Change_glacierImageEffect(MouseEvent event) {
         Glow glowEffect = new Glow(0.5);
@@ -51,6 +58,10 @@ public class MapsController {
         level1_image.setFitWidth(280);
     }
 
+    /**
+     * changes the effect of the background image of the maps page
+     * @param event
+     */
     @FXML
     public void Change_desertImageEffect(MouseEvent event) {
         Glow glowEffect = new Glow(0.5);
@@ -63,6 +74,10 @@ public class MapsController {
         level2_image.setFitWidth(280);
     }
 
+    /**
+     * changes the effect of the background image of the maps page
+     * @param event
+     */
     @FXML
     public void Change_forestImageEffect(MouseEvent event) {
         Glow glowEffect = new Glow(0.5);
@@ -75,6 +90,10 @@ public class MapsController {
         level3_image.setFitWidth(280);
     }
 
+    /**
+     * remove the effect of the background image of the maps page
+     * @param event
+     */
     @FXML
     public void glacier_mouseExited(MouseEvent event) {
         Glow glowEffect = new Glow(0);
@@ -87,6 +106,10 @@ public class MapsController {
         level1_image.setFitWidth(250);
     }
 
+    /**
+     * remove the effect of the background image of the maps page
+     * @param event
+     */
     @FXML
     public void desert_mouseExited(MouseEvent event) {
         Glow glowEffect = new Glow(0);
@@ -99,6 +122,10 @@ public class MapsController {
         level2_image.setFitWidth(250);
     }
 
+    /**
+     * remove the effect of the background image of the maps page
+     * @param event
+     */
     @FXML
     public void forest_mouseExited(MouseEvent event) {
         Glow glowEffect = new Glow(0);

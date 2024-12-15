@@ -7,6 +7,13 @@ import static com.example.platformerplain.Start.*;
 
 
 public class Counter {
+
+    /**
+     * the countdown timer label timer
+     * when countdown ends
+     * will call onCountdownEnd method
+     * @param timerLabel
+     */
     public static void startCountdown(Label timerLabel) {
         // Countdown from 5 minutes (300 seconds)
         final int totalTime = 300; // 5 minutes in seconds

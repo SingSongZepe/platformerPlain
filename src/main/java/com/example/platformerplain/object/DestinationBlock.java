@@ -8,6 +8,15 @@ public class DestinationBlock extends Entity {
 
     public String destinationType;
 
+    /**
+     * constructor for DestinationBlock
+     * @param x
+     * @param y
+     * @param w
+     * @param h
+     * @param map_index
+     * @param image
+     */
     public DestinationBlock(int x, int y, int w, int h, int map_index, Image image) {
         super(x, y, w, h, image);
         this.destinationType = switch (map_index) {

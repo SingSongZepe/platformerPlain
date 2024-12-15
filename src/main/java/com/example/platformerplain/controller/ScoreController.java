@@ -29,6 +29,9 @@ public class ScoreController {
 
     private List<Score> loadedScores;
 
+    /**
+     * when load the score.fxml, initialize the score controller
+     */
     public void initialize() {
         System.out.println("score.fxml initialized");
 
@@ -91,6 +94,10 @@ public class ScoreController {
         }
     }
 
+    /**
+     * load high score from file
+     * @return
+     */
     private int loadHighScore() {
         int score = 0;
         try {
@@ -111,6 +118,11 @@ public class ScoreController {
         return score;
     }
 
+    /**
+     * return to home page
+     * @param actionEvent
+     * @throws IOException
+     */
     @FXML
     public void Switch_toHome(ActionEvent actionEvent) throws IOException {
         getInstance().setRoot("home");

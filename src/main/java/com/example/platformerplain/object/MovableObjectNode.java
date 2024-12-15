@@ -7,6 +7,11 @@ public abstract class MovableObjectNode extends MovableNode {
 
     public String movableObjectType;
 
+    /**
+     * Constructor for MovableObjectNode
+     * @param movableObjectType
+     * @param node
+     */
     public MovableObjectNode(String movableObjectType, Node node) {
         this.node = node;
         this.movableObjectType = movableObjectType;

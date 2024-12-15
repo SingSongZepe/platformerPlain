@@ -22,16 +22,29 @@ public class Map {
     public int index;
     public String map_name;
 
+    /**
+     * constructor with default values
+     */
     public Map() {
         this.index = MAP_1_INDEX;
         this.map_name = MAP_1_NAME;
     }
 
+    /**
+     * constructor with custom values
+     * @param index
+     * @param map_name
+     */
     public Map(int index, String map_name) {
         this.index = index;
         this.map_name = map_name;
     }
 
+    /**
+     * constructor with random values
+     * @param index
+     * @return
+     */
     public static String getNameByIndex(int index) {
         return switch (index) {
             case MAP_1_INDEX -> MAP_1_NAME;
@@ -41,6 +54,11 @@ public class Map {
         };
     }
 
+    /**
+     * get random map background url
+     * @param index  the url of the map background
+     * @return
+     */
     public static String getRandomMapBackground(int index) {
         return switch (index) {
             // if there are more pictures for each map, add them here.

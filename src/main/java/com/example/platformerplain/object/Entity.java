@@ -9,6 +9,14 @@ public abstract class Entity {
     public int h;
     public Image image;
 
+    /**
+     * constructor
+     * @param x
+     * @param y
+     * @param w
+     * @param h
+     * @param image
+     */
     public Entity(int x, int y, int w, int h, Image image) {
         this.x = x;
         this.y = y;
