@@ -1,6 +1,3 @@
-
-package test.java;
-
 import com.example.platformerplain.object.Score;
 import com.example.platformerplain.object.ScoreManager;
 import com.example.platformerplain.object.Value;
