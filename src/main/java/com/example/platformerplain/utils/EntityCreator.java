@@ -1,6 +1,6 @@
 package com.example.platformerplain.utils;
 
-import com.example.platformerplain.Start;
+import com.example.platformerplain.Main;
 import com.example.platformerplain.object.*;
 import javafx.scene.image.Image;
 
@@ -93,12 +93,12 @@ public class EntityCreator {
             case GLACIER_ICE_BLOCK_ -> new FeatureBlock(x, y, w, h, FeatureBlock.ICE_BLOCK, loadImageView(entityType, tag));
             case GLACIER_SNOW_BLOCK_ -> new FeatureBlock(x, y, w, h, FeatureBlock.SNOW_BLOCK, loadImageView(entityType, tag));
             // destination
-            case IGLOO_, OASIS_ -> new DestinationBlock(x, y, w, h, Start.getInstance().gameState.map.index, loadImageView(entityType, tag));
+            case IGLOO_, OASIS_ -> new DestinationBlock(x, y, w, h, Main.getInstance().gameState.map.index, loadImageView(entityType, tag));
             // enemy blocks
-            case FIRE_DRAGON_ -> new FireDragonBlock(x, y, w, h, loadImageView(entityType, tag), Start.getInstance().rangeIterator.next());
-            case MUMMY_ -> new MummyBlock(x, y, w, h, loadImageView(entityType, tag), Start.getInstance().rangeIterator.next());
+            case FIRE_DRAGON_ -> new FireDragonBlock(x, y, w, h, loadImageView(entityType, tag), Main.getInstance().rangeIterator.next());
+            case MUMMY_ -> new MummyBlock(x, y, w, h, loadImageView(entityType, tag), Main.getInstance().rangeIterator.next());
             // moving object blocks
-            case FLYING_CARPET_ -> new FlyingCarpetBlock(x, y, w, h, loadImageView(entityType, tag), Start.getInstance().rangeIterator.next());
+            case FLYING_CARPET_ -> new FlyingCarpetBlock(x, y, w, h, loadImageView(entityType, tag), Main.getInstance().rangeIterator.next());
 
             default -> throw new IllegalStateException("Unexpected value: " + entityType);
         };
@@ -118,7 +118,7 @@ public class EntityCreator {
                 String url = "/images/character/Character" + tag + ".png";
 
                 return new Image(Objects.requireNonNull(
-                        Start.class.getResourceAsStream(url)
+                        Main.class.getResourceAsStream(url)
                 ));
             }
 
@@ -127,21 +127,21 @@ public class EntityCreator {
                 String url = "/images/supply/water.png";
 
                 return new Image(Objects.requireNonNull(
-                        Start.class.getResourceAsStream(url)
+                        Main.class.getResourceAsStream(url)
                 ));
             }
             case CAN_ -> {
                 String url = "/images/supply/can.png";
 
                 return new Image(Objects.requireNonNull(
-                        Start.class.getResourceAsStream(url)
+                        Main.class.getResourceAsStream(url)
                 ));
             }
             case COOKIE_ -> {
                 String url = "/images/supply/cookie.png";
 
                 return new Image(Objects.requireNonNull(
-                        Start.class.getResourceAsStream(url)
+                        Main.class.getResourceAsStream(url)
                 ));
             }
             // platform blocks
@@ -149,7 +149,7 @@ public class EntityCreator {
                 String url = "/images/platform/glacier_platform_block3.png";
 
                 return new Image(Objects.requireNonNull(
-                        Start.class.getResourceAsStream(url)
+                        Main.class.getResourceAsStream(url)
                 ));
             }
             case DESERT_PLATFORM_BLOCK_ -> {
@@ -157,7 +157,7 @@ public class EntityCreator {
                 String url = "/images/platform/desert_platform_block2.png";
 
                 return new Image(Objects.requireNonNull(
-                        Start.class.getResourceAsStream(url)
+                        Main.class.getResourceAsStream(url)
                 ));
             }
             case FOREST_PLATFORM_BLOCK_ -> {
@@ -165,7 +165,7 @@ public class EntityCreator {
                 String url = "/images/platform/glacier_platform_block3.png";
 
                 return new Image(Objects.requireNonNull(
-                        Start.class.getResourceAsStream(url)
+                        Main.class.getResourceAsStream(url)
                 ));
             }
             // obstacle blocks
@@ -174,21 +174,21 @@ public class EntityCreator {
                 String url = "/images/obstacle/glacier_ice_block.png";
 
                 return new Image(Objects.requireNonNull(
-                        Start.class.getResourceAsStream(url)
+                        Main.class.getResourceAsStream(url)
                 ));
             }
             case DESERT_STONE_BLOCK_ -> {
                 String url = "/images/obstacle/desert_stone.png";
 
                 return new Image(Objects.requireNonNull(
-                        Start.class.getResourceAsStream(url)
+                        Main.class.getResourceAsStream(url)
                 ));
             }
             case DESERT_CACTUS_BLOCK_ -> {
                 String url = "/images/obstacle/desert_cactus.png";
 
                 return new Image(Objects.requireNonNull(
-                        Start.class.getResourceAsStream(url)
+                        Main.class.getResourceAsStream(url)
                 ));
             }
             // feature blocks
@@ -196,21 +196,21 @@ public class EntityCreator {
                 String url = "/images/feature/glacier_ice_block.jpg";
 
                 return new Image(Objects.requireNonNull(
-                        Start.class.getResourceAsStream(url)
+                        Main.class.getResourceAsStream(url)
                 ));
             }
             case GLACIER_SNOW_BLOCK_ -> {
                 String url = "/images/feature/glacier_snow_block.png";
 
                 return new Image(Objects.requireNonNull(
-                        Start.class.getResourceAsStream(url)
+                        Main.class.getResourceAsStream(url)
                 ));
             }
             case IGLOO_ -> {
                 String url = "/images/destination/glacier_igloo2.png";
 
                 return new Image(Objects.requireNonNull(
-                        Start.class.getResourceAsStream(url)
+                        Main.class.getResourceAsStream(url)
                 ));
             }
             case OASIS_ -> {
@@ -218,7 +218,7 @@ public class EntityCreator {
                 String url = "/images/destination/desert_oasis.png";
 
                 return new Image(Objects.requireNonNull(
-                        Start.class.getResourceAsStream(url)
+                        Main.class.getResourceAsStream(url)
                 ));
             }
             // enemy blocks
@@ -226,14 +226,14 @@ public class EntityCreator {
                 String url = "/images/enemy/desert_firedragon.png";
 
                 return new Image(Objects.requireNonNull(
-                        Start.class.getResourceAsStream(url)
+                        Main.class.getResourceAsStream(url)
                 ));
             }
             case MUMMY_ -> {
                 String url = "/images/enemy/desert_mummy.png";
 
                 return new Image(Objects.requireNonNull(
-                        Start.class.getResourceAsStream(url)
+                        Main.class.getResourceAsStream(url)
                 ));
             }
             // moving object blocks
@@ -241,7 +241,7 @@ public class EntityCreator {
                 String url = "/images/moving_objects/desert_flying_carpet.png";
 
                 return new Image(Objects.requireNonNull(
-                        Start.class.getResourceAsStream(url)
+                        Main.class.getResourceAsStream(url)
                 ));
             }
 

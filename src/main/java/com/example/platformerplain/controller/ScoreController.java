@@ -1,6 +1,5 @@
 package com.example.platformerplain.controller;
 
-import com.example.platformerplain.Start;
 import com.example.platformerplain.object.Score;
 import com.example.platformerplain.object.ScoreManager;
 import com.example.platformerplain.object.Value;
@@ -13,10 +12,9 @@ import javafx.scene.control.Button;
 import java.io.IOException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
 import java.util.List;
 
-import static com.example.platformerplain.Start.getInstance;
+import static com.example.platformerplain.Main.getInstance;
 
 public class ScoreController {
 

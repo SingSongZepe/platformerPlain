@@ -1,6 +1,6 @@
 package com.example.platformerplain.controller;
 
-import com.example.platformerplain.Start;
+import com.example.platformerplain.Main;
 import javafx.scene.control.Button;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -8,7 +8,7 @@ import javafx.scene.layout.Pane;
 
 import java.io.IOException;
 
-import static com.example.platformerplain.Start.getInstance;
+import static com.example.platformerplain.Main.getInstance;
 
 public class InformationController {
 
@@ -34,7 +34,7 @@ public class InformationController {
      */
     public void switch_intro(MouseEvent actionEvent) throws IOException {
         ContentArea.getChildren().clear();
-        ContentArea.getChildren().add(Start.loadFXML("information_subpage1"));
+        ContentArea.getChildren().add(Main.loadFXML("information_subpage1"));
     }
 
     /**
@@ -44,7 +44,7 @@ public class InformationController {
      */
     public void switch_level1(MouseEvent actionEvent) throws IOException {
         ContentArea.getChildren().clear();
-        ContentArea.getChildren().add(Start.loadFXML("information_subpage2"));
+        ContentArea.getChildren().add(Main.loadFXML("information_subpage2"));
     }
 
     /**
@@ -54,6 +54,6 @@ public class InformationController {
      */
     public void switch_level2(MouseEvent actionEvent) throws IOException {
         ContentArea.getChildren().clear();
-        ContentArea.getChildren().add(Start.loadFXML("information_subpage3"));
+        ContentArea.getChildren().add(Main.loadFXML("information_subpage3"));
     }
 }

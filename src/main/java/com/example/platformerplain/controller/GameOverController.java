@@ -5,7 +5,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import com.example.platformerplain.Start;
+import com.example.platformerplain.Main;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
@@ -33,7 +33,7 @@ public class GameOverController {
     @FXML
     public void initialize() {
         backgroundImage.setImage(new Image(Objects.requireNonNull(
-                Start.class.getResourceAsStream(Map.getRandomMapBackground(Start.getInstance().gameState.map.index))
+                Main.class.getResourceAsStream(Map.getRandomMapBackground(Main.getInstance().gameState.map.index))
         )));
 
         backgroundImage.setFitWidth(1280); // Set the width to 1280
@@ -52,9 +52,9 @@ public class GameOverController {
         System.out.println("Restart game");
 
         // clear some data before starting the game
-        Start.getInstance().gameState.reset();
+        Main.getInstance().gameState.reset();
 
-        Start.getInstance().restartGame();
+        Main.getInstance().restartGame();
     }
 
     /**
@@ -64,7 +64,7 @@ public class GameOverController {
      */
     @FXML
     private void handleExitButtonAction(ActionEvent event) throws IOException {
-        Start.getInstance().setRoot("home");
+        Main.getInstance().setRoot("home");
     }
 }
 

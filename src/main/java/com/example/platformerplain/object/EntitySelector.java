@@ -3,7 +3,7 @@ package com.example.platformerplain.object;
 import com.example.platformerplain.utils.EntityCreator;
 import javafx.scene.image.ImageView;
 
-import static com.example.platformerplain.Start.*;
+import static com.example.platformerplain.Main.*;
 import static com.example.platformerplain.utils.InitContentAdapter.getImageView;
 
 /**

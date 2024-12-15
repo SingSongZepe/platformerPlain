@@ -6,7 +6,7 @@ import javafx.scene.control.Button;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 //import multiplewindows.Main;
-import com.example.platformerplain.Start;
+import com.example.platformerplain.Main;
 
 import java.io.IOException;
 
@@ -32,7 +32,7 @@ public class HomeController {
      */
     @FXML
     public void switchOnClicked_Exit(MouseEvent actionEvent) throws IOException {
-        Start.getInstance().setRoot("start");
+        Main.getInstance().setRoot("start");
     }
 
     /**
@@ -42,7 +42,7 @@ public class HomeController {
      */
     @FXML
     public void switchOnClicked_Maps(ActionEvent actionEvent) throws IOException {
-        Start.getInstance().setRoot("maps");
+        Main.getInstance().setRoot("maps");
     }
 
     /**
@@ -52,7 +52,7 @@ public class HomeController {
      */
     @FXML
     public void switchOnClicked_Information(ActionEvent actionEvent) throws IOException {
-        Start.getInstance().setRoot("information");
+        Main.getInstance().setRoot("information");
     }
 
     /**
@@ -62,7 +62,7 @@ public class HomeController {
      */
     @FXML
     public void switchOnClicked_Option(ActionEvent actionEvent) throws IOException {
-        Start.getInstance().setRoot("option");
+        Main.getInstance().setRoot("option");
     }
 
     /**
@@ -75,9 +75,9 @@ public class HomeController {
         System.out.println("Start game");
 
         // clear some data before starting the game
-        Start.getInstance().gameState.spentTime = 0;
-        Start.getInstance().gameState.collectedSupplies = 0;
+        Main.getInstance().gameState.spentTime = 0;
+        Main.getInstance().gameState.collectedSupplies = 0;
 
-        Start.getInstance().startGame();
+        Main.getInstance().startGame();
     }
 }
