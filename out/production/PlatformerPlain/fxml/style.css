@@ -152,6 +152,37 @@
     -fx-cursor: hand;
 }
 
+/* information button  */
+.info_introbutton {
+    -fx-background-image : url("/images/information/Introduction.png");
+    -fx-background-size : cover;
+    -fx-background-repeat : no-repeat;
+    -fx-background-position : center;
+    -fx-border-width: 0;
+    -fx-padding: 0;
+    -fx-cursor: hand;
+}
+
+.info_level1button {
+    -fx-background-image : url("/images/information/GlacierLevel.png");
+    -fx-background-size : cover;
+    -fx-background-repeat : no-repeat;
+    -fx-background-position : center;
+    -fx-border-width: 0;
+    -fx-padding: 0;
+    -fx-cursor: hand;
+}
+
+.info_level2button {
+    -fx-background-image : url("/images/information/DesertLevel.png");
+    -fx-background-size : cover;
+    -fx-background-repeat : no-repeat;
+    -fx-background-position : center;
+    -fx-border-width: 0;
+    -fx-padding: 0;
+    -fx-cursor: hand;
+}
+
 /* option -> select player button */
 .select_player_button {
     -fx-width: 250px;

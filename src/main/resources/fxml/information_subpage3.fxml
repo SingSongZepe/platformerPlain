@@ -7,12 +7,16 @@
 <AnchorPane prefHeight="359.0" prefWidth="481.0" xmlns="http://javafx.com/javafx/23.0.1"
             xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="com.example.platformerplain.controller.InformationSubpage3Controller">
+
    <ImageView fitHeight="31.0" fitWidth="39.0" layoutX="435.0" layoutY="14.0" pickOnBounds="true"
               preserveRatio="true"
               onMouseClicked="#return_toInformation">
       <Image url="@../images/buttons/close.png"/>
    </ImageView>
-   <ImageView fitHeight="239.0" fitWidth="382.0" layoutX="50.0" layoutY="67.0" pickOnBounds="true">
+
+   <ImageView fitHeight="239.0" fitWidth="382.0" layoutX="50.0" layoutY="67.0" pickOnBounds="true"
+              preserveRatio="true" styleClass="Information_closePage">
       <Image url="@../images/information/desertintro.png"/>
    </ImageView>
+
 </AnchorPane>

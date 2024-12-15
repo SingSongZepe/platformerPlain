@@ -6,13 +6,16 @@
 
 <AnchorPane prefHeight="359.0" prefWidth="481.0" xmlns="http://javafx.com/javafx/23.0.1"
             xmlns:fx="http://javafx.com/fxml/1"
+            stylesheets="@style.css"
             fx:controller="com.example.platformerplain.controller.InformationSubpage1Controller">
 
    <ImageView fitHeight="120.0" fitWidth="417.0" layoutX="33.0" layoutY="117.0" pickOnBounds="true">
       <Image url="@../images/information/intro.png"/>
    </ImageView>
+
    <ImageView fitHeight="31.0" fitWidth="39.0" layoutX="435.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true"
-              onMouseClicked="#return_toInformation">
+              onMouseClicked="#return_toInformation" styleClass="Information_closePage">
       <Image url="@../images/buttons/close.png"/>
    </ImageView>
+
 </AnchorPane>
