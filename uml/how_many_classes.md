@@ -14,6 +14,10 @@
 - **PlatformerPlain需要改成Platformer**
 - **com.example.platformerplain这个包的名字也需要修改**
 
+    
+
+- Main
+
 ### Controller
 
 - GameOverController
@@ -22,6 +26,12 @@
 
 - InformationController
 
+- InformationSubpage1Controller
+
+- InformationSubpage2Controller
+
+- InformationSubpage3Controller
+
 - MapsController
 
 - OptionController
@@ -29,8 +39,6 @@
 - PlayerController
 
 - ScoreController
-
-- SettingController
 
 - StartController
 
@@ -42,15 +50,89 @@
 
 - Character
 
+- DestinationBlock
+
+- DestinationNode
+
+- EnemyNode
+
+- Entity
+
+- EntitySelector
+
+- FeatureBlock
+
+- FeatureNode
+
+- FireDragonBlock
+
+- FireDragonNode
+
+- FlyingCarpetBlock
+
+- FlyingCarpetNode
+
 - GameState
 
 - Map
+
+- MovableNode
+
+- MovableObjectNode
+
+- MummyBlock
+
+- MummyNode
+
+- Obstacle
+
+- ObstacleBlock
+
+- PlatformBlock
+
+- Player
 
 - Score
 
 - ScoreManager
 
+- SupplyBlock
+
+- SupplyNode
+
 - Value
+
+### Pattern
+
+- LineMode
+
+- Movable
+
+- NoMove
+
+- ObserverSubject
+
+- Observer
+
+### Utils
+
+- Counter
+
+- EntityCreator
+
+- File
+
+- InitContent
+
+- InitContentAdapter
+
+- InitGameUi
+
+- IntArrayIterator
+
+- RandomNumberGenerator
+
+- ScoreCalculator
 
 ### View
 

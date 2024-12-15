@@ -39,7 +39,6 @@ com\example\platformerplain\LevelData.class
 com\example\platformerplain\pattern\Observer.class
 com\example\platformerplain\utils\InitContentAdapter.class
 com\example\platformerplain\object\Player.class
-com\example\platformerplain\test\TestScoreManager.class
 com\example\platformerplain\utils\RandomNumberGenerator.class
 com\example\platformerplain\object\DestinationBlock.class
 com\example\platformerplain\controller\InformationController.class
@@ -51,13 +50,13 @@ com\example\platformerplain\utils\File.class
 com\example\platformerplain\utils\IntArrayIterator.class
 com\example\platformerplain\pattern\Movable.class
 com\example\platformerplain\controller\InformationSubpage1Controller.class
+test\OptionPageTest.class
 com\example\platformerplain\object\Entity.class
 com\example\platformerplain\object\ScoreManager.class
 test\MapPageTest.class
 com\example\platformerplain\object\ObstacleBlock.class
 com\example\platformerplain\Main.class
 com\example\platformerplain\object\MummyBlock.class
-com\example\platformerplain\test\TestStart.class
 com\example\platformerplain\controller\PlayerController.class
 com\example\platformerplain\object\FeatureNode.class
 com\example\platformerplain\object\FireDragonBlock.class

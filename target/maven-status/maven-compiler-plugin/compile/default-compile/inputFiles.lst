@@ -7,7 +7,6 @@ F:\MyProjects\receive\platformer\code\PlatformerPlain_main\src\main\java\test\Le
 F:\MyProjects\receive\platformer\code\PlatformerPlain_main\src\main\java\com\example\platformerplain\object\FeatureBlock.java
 F:\MyProjects\receive\platformer\code\PlatformerPlain_main\src\main\java\com\example\platformerplain\pattern\NoMove.java
 F:\MyProjects\receive\platformer\code\PlatformerPlain_main\src\main\java\com\example\platformerplain\pattern\ObservedSubject.java
-F:\MyProjects\receive\platformer\code\PlatformerPlain_main\src\main\java\com\example\platformerplain\test\TestStart.java
 F:\MyProjects\receive\platformer\code\PlatformerPlain_main\src\main\java\com\example\platformerplain\object\DestinationBlock.java
 F:\MyProjects\receive\platformer\code\PlatformerPlain_main\src\main\java\com\example\platformerplain\Main.java
 F:\MyProjects\receive\platformer\code\PlatformerPlain_main\src\main\java\com\example\platformerplain\object\FireDragonBlock.java
@@ -20,8 +19,8 @@ F:\MyProjects\receive\platformer\code\PlatformerPlain_main\src\main\java\com\exa
 F:\MyProjects\receive\platformer\code\PlatformerPlain_main\src\main\java\com\example\platformerplain\object\ObstacleBlock.java
 F:\MyProjects\receive\platformer\code\PlatformerPlain_main\src\main\java\test\ScorePageTest.java
 F:\MyProjects\receive\platformer\code\PlatformerPlain_main\src\main\java\module-info.java
+F:\MyProjects\receive\platformer\code\PlatformerPlain_main\src\main\java\test\OptionPageTest.java
 F:\MyProjects\receive\platformer\code\PlatformerPlain_main\src\main\java\com\example\platformerplain\controller\InformationSubpage1Controller.java
-F:\MyProjects\receive\platformer\code\PlatformerPlain_main\src\main\java\com\example\platformerplain\test\TestScoreManager.java
 F:\MyProjects\receive\platformer\code\PlatformerPlain_main\src\main\java\com\example\platformerplain\object\FeatureNode.java
 F:\MyProjects\receive\platformer\code\PlatformerPlain_main\src\main\java\com\example\platformerplain\controller\ScoreController.java
 F:\MyProjects\receive\platformer\code\PlatformerPlain_main\src\main\java\com\example\platformerplain\object\Entity.java
