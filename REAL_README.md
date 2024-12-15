@@ -32,16 +32,28 @@
 
 8. Test case 7: Level2Test, you can test the second level.
 
-### Some advanced design
+### Some advanced design (Addition)
 
-> By creating the abstract class Movable, we derived two classes, LineMove and NoMove, so we defined MovableNode (including its derivatives EnemyNode and MovableObjectNode) to own the object of Movable, and can call different derivatives of Movable via step_move. Call the step_move function of the different derived classes of Movable to complete the move of the Node.
+1. Use of abstract classes
+
+> By creating the abstract analogue Movable, we derive two classes, LineMove and NoMove, so we define MovableNode (including its derived classes EnemyNode and MovableObjectNode) to own the object of Movable, and we can use step_move to Call the step_move function of the different derived classes of Movable to complete the move of the Node.  
 > This design greatly reduces duplication of code. 
-> This design greatly reduces repetitive code, every time you add a new monster, you only need to inherit from EnemyNode, and if the monster is static, you can set its Movable member to NoMove, in this way, in every computation frame, its step_move will not be called to generate movement. This achieves unification of the interface for movement of all movable objects (creatures or platforms, etc.).
+> This design greatly reduces repetitive code, every time you add a new monster, you only need to inherit from EnemyNode, and if the monster is static, you can set its Movable member to NoMove, in this way, in every computation frame, its step_move will not be called to generate movement. This unifies the interface for moving all movable objects (creatures, platforms, etc.).
 
+2. Give moving objects in the game a range of movement.
 
+> By using iterators and arrays together, when initialising the map content, the ranges are taken out of the iterator one by one and then applied to the moving objects.
 
+3. Moving object turning back
 
+> A moving object when going back will reverse the image mirror and then the displacement moves in the negative direction as a way to achieve this effect.
 
+4. Mapping each Entity
 
+> Through the string EntityType, combined with switch to achieve, and the picture will be returned to the relevant Node object, so as to achieve each new entity, only need to add a case and a few related classes to achieve.
+
+5. Timer Logic
+
+> After the level starts, a timer will be prevented in the window, starting from 5 minutes even if it is an AnimationTimer object, and the timeLabel will be modified to achieve this effect before 1s passes, and it will come in handy during the final scoring.
 
 
