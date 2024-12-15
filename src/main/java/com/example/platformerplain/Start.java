@@ -250,6 +250,9 @@ public class Start extends Application {
         getInstance().setRoot("score");
     }
 
+    /**
+     * clear all the data of a map(game)
+     */
     private static void clearContentStates() {
 
         // Stop and release the media player
