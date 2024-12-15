@@ -11,6 +11,7 @@ import java.io.IOException;
 import static com.example.platformerplain.Start.getInstance;
 
 public class InformationController {
+
     public ImageView Information_closePage;
     public Button info_introbutton;
     public Button info_level1button;

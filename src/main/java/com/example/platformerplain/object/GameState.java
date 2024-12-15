@@ -17,6 +17,19 @@ public class GameState {
     public static final int TOTAL_TIME = 300;
     public int spentTime;
 
+    public void clear() {
+        this.character = new Character();
+        this.map = new Map();
+        this.totalSupplies = 0;
+        this.collectedSupplies = 0;
+        this.spentTime = 0;
+    }
+
+    public void reset() {
+        this.spentTime = 0;
+        this.collectedSupplies = 0;
+    }
+
     // constructor
     public GameState() {
         character = new Character();

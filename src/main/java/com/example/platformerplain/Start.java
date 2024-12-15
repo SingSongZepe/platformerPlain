@@ -157,6 +157,20 @@ public class Start extends Application {
     }
 
     /**
+     * Restart the game by clearing all the data of a map(game) and loading the start scene.
+     * @throws IOException
+     */
+    public void restartGame() throws IOException {
+        clearContentStates();
+
+        scene.setRoot(appRoot);
+
+        InitContent.initContent();
+
+        playMusic();
+    }
+
+    /**
      * Start the game by loading the game scene.
      * @throws IOException
      */
@@ -167,21 +181,7 @@ public class Start extends Application {
 
         InitContent.initContent();
 
-        // according to the map_index, load the corresponding bgm
-        Media audioMedia = switch (gameState.map.index) {
-            case 1 -> // level 1 glacier
-                    new Media(Objects.requireNonNull(Start.class.getResource("/sounds/glacier_bgm.mp3")).toExternalForm());
-            case 2 -> // level 2 desert
-                    new Media(Objects.requireNonNull(Start.class.getResource("/sounds/desert_bgm.mp3")).toExternalForm());
-            case 3 -> // level 3 forest
-                    new Media(Objects.requireNonNull(Start.class.getResource("/sounds/glacier_bgm.mp3")).toExternalForm());
-            default -> // default level 1 glacier
-                    throw new RuntimeException("Invalid map index: " + gameState.map.index);
-        };
-        mediaPlayer = new MediaPlayer(audioMedia);
-        mediaPlayer.setVolume(Value.MEDIAPLAYER_VOLUME);
-        mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);
-        mediaPlayer.play();
+        playMusic();
     }
 
     /**
@@ -205,7 +205,7 @@ public class Start extends Application {
      */
     public static void gameOver() throws IOException {
         // clear all the data of a map(game)
-        getInstance().gameState = new GameState();
+        getInstance().gameState.reset();
 
         getInstance().timer.stop();
 
@@ -277,5 +277,23 @@ public class Start extends Application {
         getInstance().appRoot = new Pane();
         getInstance().uiRoot = new Pane();
         getInstance().playerController = null;
+    }
+
+    public void playMusic() {
+        // according to the map_index, load the corresponding bgm
+        Media audioMedia = switch (gameState.map.index) {
+            case 1 -> // level 1 glacier
+                    new Media(Objects.requireNonNull(Start.class.getResource("/sounds/glacier_bgm.mp3")).toExternalForm());
+            case 2 -> // level 2 desert
+                    new Media(Objects.requireNonNull(Start.class.getResource("/sounds/desert_bgm.mp3")).toExternalForm());
+            case 3 -> // level 3 forest
+                    new Media(Objects.requireNonNull(Start.class.getResource("/sounds/glacier_bgm.mp3")).toExternalForm());
+            default -> // default level 1 glacier
+                    throw new RuntimeException("Invalid map index: " + gameState.map.index);
+        };
+        mediaPlayer = new MediaPlayer(audioMedia);
+        mediaPlayer.setVolume(Value.MEDIAPLAYER_VOLUME);
+        mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);
+        mediaPlayer.play();
     }
 }

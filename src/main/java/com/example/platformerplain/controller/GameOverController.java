@@ -26,7 +26,10 @@ public class GameOverController {
     @FXML
     private Button exitButton;
 
-
+    /**
+     * This method is called when the game is over.
+     * It sets the text of the game over label, and sets the background image.
+     */
     @FXML
     public void initialize() {
         backgroundImage.setImage(new Image(Objects.requireNonNull(
@@ -49,10 +52,9 @@ public class GameOverController {
         System.out.println("Restart game");
 
         // clear some data before starting the game
-        Start.getInstance().gameState.spentTime = 0;
-        Start.getInstance().gameState.collectedSupplies = 0;
+        Start.getInstance().gameState.reset();
 
-        Start.getInstance().startGame();
+        Start.getInstance().restartGame();
     }
 
     /**
