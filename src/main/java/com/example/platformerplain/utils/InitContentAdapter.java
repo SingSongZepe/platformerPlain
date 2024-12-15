@@ -1,10 +1,9 @@
 package com.example.platformerplain.utils;
 
 import com.example.platformerplain.LevelData;
-import com.example.platformerplain.Start;
+import com.example.platformerplain.Main;
 import com.example.platformerplain.controller.PlayerController;
 import com.example.platformerplain.object.*;
-import javafx.animation.AnimationTimer;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
@@ -12,7 +11,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Objects;
 
-import static com.example.platformerplain.Start.*;
+import static com.example.platformerplain.Main.*;
 
 
 public class InitContentAdapter {
@@ -82,7 +81,7 @@ public class InitContentAdapter {
      */
     private static ImageView getBg() {
         ImageView bg = new ImageView(new Image(Objects.requireNonNull(
-                Start.class.getResourceAsStream( Map.getRandomMapBackground(getInstance().gameState.map.index))
+                Main.class.getResourceAsStream( Map.getRandomMapBackground(getInstance().gameState.map.index))
         )));
 
         // Set the ImageView to stretch to 1280x720

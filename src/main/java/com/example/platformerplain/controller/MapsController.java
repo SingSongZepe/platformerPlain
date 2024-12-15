@@ -1,18 +1,16 @@
 package com.example.platformerplain.controller;
 
-import com.example.platformerplain.Start;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.effect.Glow;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 
 import java.io.IOException;
 
-import static com.example.platformerplain.Start.getInstance;
+import static com.example.platformerplain.Main.getInstance;
 
 public class MapsController {
     @FXML

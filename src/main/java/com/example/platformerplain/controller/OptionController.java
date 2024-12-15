@@ -1,15 +1,13 @@
 package com.example.platformerplain.controller;
 
-import com.example.platformerplain.object.Character;
 import javafx.event.ActionEvent;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 //import multiplewindows.Main;
-import com.example.platformerplain.Start;
 
 import java.io.IOException;
 
-import static com.example.platformerplain.Start.getInstance;
+import static com.example.platformerplain.Main.getInstance;
 
 public class OptionController {
     public ImageView Option_closePage;

@@ -33,11 +33,10 @@ public class Map {
     /**
      * constructor with custom values
      * @param index
-     * @param map_name
      */
-    public Map(int index, String map_name) {
+    public Map(int index) {
         this.index = index;
-        this.map_name = map_name;
+        this.map_name = getNameByIndex(index);
     }
 
     /**

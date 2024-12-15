@@ -3,7 +3,7 @@ package com.example.platformerplain.utils;
 import javafx.animation.AnimationTimer;
 import javafx.scene.control.Label;
 
-import static com.example.platformerplain.Start.*;
+import static com.example.platformerplain.Main.*;
 
 
 public class Counter {

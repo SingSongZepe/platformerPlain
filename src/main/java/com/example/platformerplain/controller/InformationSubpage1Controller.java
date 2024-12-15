@@ -1,6 +1,6 @@
 package com.example.platformerplain.controller;
 
-import com.example.platformerplain.Start;
+import com.example.platformerplain.Main;
 import javafx.scene.input.MouseEvent;
 
 import java.io.IOException;
@@ -14,6 +14,6 @@ public class InformationSubpage1Controller {
      * @throws IOException
      */
     public void return_toInformation(MouseEvent mouseEvent) throws IOException {
-        Start.getInstance().setRoot("information");
+        Main.getInstance().setRoot("information");
     }
 }

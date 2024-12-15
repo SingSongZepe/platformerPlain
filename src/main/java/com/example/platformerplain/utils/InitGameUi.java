@@ -1,16 +1,14 @@
 package com.example.platformerplain.utils;
 
-import com.example.platformerplain.Start;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 
 import java.io.IOException;
 
-import static com.example.platformerplain.Start.*;
+import static com.example.platformerplain.Main.*;
 import static com.example.platformerplain.utils.Counter.startCountdown;
 
 public class InitGameUi {
@@ -29,9 +27,9 @@ public class InitGameUi {
         uiContainer.setPrefHeight(80);
 
         // Create a label to display the timer
-        timerLabel.setText("Time left: 5:00");
-        timerLabel.setTextFill(Color.BLACK); // Set text color for visibility
-        timerLabel.setStyle("-fx-font-size: 24px;");
+        getInstance().timerLabel.setText("Time left: 5:00");
+        getInstance().timerLabel.setTextFill(Color.BLACK); // Set text color for visibility
+        getInstance().timerLabel.setStyle("-fx-font-size: 24px;");
 
         // Create an exit button
         Button exitButton = new Button("Exit Game");
@@ -61,7 +59,7 @@ public class InitGameUi {
         HBox hbox = new HBox();
         hbox.setSpacing(20); // Set spacing between elements
         hbox.setAlignment(Pos.CENTER); // Center the HBox content
-        hbox.getChildren().addAll(timerLabel, exitButton); // Add the timer label and button to the HBox
+        hbox.getChildren().addAll(getInstance().timerLabel, exitButton); // Add the timer label and button to the HBox
 
         // Add the HBox to the UI container
         uiContainer.getChildren().add(hbox); // Add the HBox to the uiContainer
@@ -70,6 +68,6 @@ public class InitGameUi {
         getInstance().uiRoot.getChildren().add(uiContainer); // Add the uiContainer to the uiRoot
 
         // Start the countdown timer
-        startCountdown(timerLabel);
+        startCountdown(getInstance().timerLabel);
     }
 }

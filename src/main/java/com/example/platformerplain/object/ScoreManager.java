@@ -1,12 +1,7 @@
 package com.example.platformerplain.object;
 
-import com.example.platformerplain.Start;
-import com.example.platformerplain.object.Score;
-
 import java.io.*;
-import java.net.URL;
 import java.util.List;
-import java.util.Objects;
 
 public class ScoreManager {
 

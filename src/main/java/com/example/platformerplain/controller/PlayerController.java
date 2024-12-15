@@ -1,6 +1,6 @@
 package com.example.platformerplain.controller;
 
-import com.example.platformerplain.Start;
+import com.example.platformerplain.Main;
 import com.example.platformerplain.model.PlayerModel;
 import com.example.platformerplain.object.*;
 import com.example.platformerplain.view.PlayerView;
@@ -10,11 +10,10 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.layout.Pane;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-import static com.example.platformerplain.Start.*;
+import static com.example.platformerplain.Main.*;
 
 public class PlayerController {
     private PlayerModel playerModel;
@@ -92,7 +91,7 @@ public class PlayerController {
         // then game over
         if (playerModel.getY() > 780) {
             try {
-                Start.gameOver();
+                Main.gameOver();
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
@@ -124,14 +123,14 @@ public class PlayerController {
 
         if (destinationNode != null && destinationNode.node.getBoundsInParent().contains(midPlayerX, playerModel.getY() + 70)) {
             // you win the game
-            Start.gameWin();
+            Main.gameWin();
             return;
         }
 
         // check if the player being attacked by enemy
         for (EnemyNode enemyNode: enemyNodes) {
             if (enemyNode.node.getBoundsInParent().intersects(playerView.getPlayerNode().getBoundsInParent())) {
-                Start.gameOver();
+                Main.gameOver();
                 return;
             }
         }
