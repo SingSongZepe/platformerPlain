@@ -12,8 +12,6 @@ import javafx.scene.image.ImageView;
 import java.io.IOException;
 import java.util.Objects;
 
-import static com.example.platformerplain.Start.gameState;
-
 public class GameOverController {
 
     @FXML
@@ -32,7 +30,7 @@ public class GameOverController {
     @FXML
     public void initialize() {
         backgroundImage.setImage(new Image(Objects.requireNonNull(
-                Start.class.getResourceAsStream(Map.getRandomMapBackground(gameState.map.index))
+                Start.class.getResourceAsStream(Map.getRandomMapBackground(Start.getInstance().gameState.map.index))
         )));
 
         backgroundImage.setFitWidth(1280); // Set the width to 1280
@@ -51,10 +49,10 @@ public class GameOverController {
         System.out.println("Restart game");
 
         // clear some data before starting the game
-        Start.gameState.spentTime = 0;
-        Start.gameState.collectedSupplies = 0;
+        Start.getInstance().gameState.spentTime = 0;
+        Start.getInstance().gameState.collectedSupplies = 0;
 
-        Start.startGame();
+        Start.getInstance().startGame();
     }
 
     /**
@@ -64,7 +62,7 @@ public class GameOverController {
      */
     @FXML
     private void handleExitButtonAction(ActionEvent event) throws IOException {
-        Start.setRoot("home");
+        Start.getInstance().setRoot("home");
     }
 }
 

@@ -1,10 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="359.0" prefWidth="481.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.platformerplain.controller.Information_Subpage1_Controller">
-   <children>
-      <Text layoutX="93.0" layoutY="132.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Join &quot;Escape Beyond&quot; and experience two adventure levels with different styles, each level is full of challenges and surprises!" wrappingWidth="325.3629150390625" />
-   </children>
+<AnchorPane prefHeight="359.0" prefWidth="481.0" xmlns="http://javafx.com/javafx/23.0.1"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.example.platformerplain.controller.InformationSubpage1Controller">
+
+   <ImageView fitHeight="120.0" fitWidth="417.0" layoutX="33.0" layoutY="117.0" pickOnBounds="true">
+      <Image url="@../images/information/intro.png"/>
+   </ImageView>
+   <ImageView fitHeight="31.0" fitWidth="39.0" layoutX="435.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true"
+              onMouseClicked="#return_toInformation">
+      <Image url="@../images/buttons/close.png"/>
+   </ImageView>
 </AnchorPane>

@@ -10,8 +10,7 @@ import javafx.scene.paint.Color;
 
 import java.io.IOException;
 
-import static com.example.platformerplain.Start.timerLabel;
-import static com.example.platformerplain.Start.uiRoot;
+import static com.example.platformerplain.Start.*;
 import static com.example.platformerplain.utils.Counter.startCountdown;
 
 public class InitGameUi {
@@ -43,7 +42,7 @@ public class InitGameUi {
         exitButton.setOnAction(event -> {
             System.out.println("quit game");
             try {
-                Start.quitGame();
+                getInstance().quitGame();
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
@@ -68,7 +67,7 @@ public class InitGameUi {
         uiContainer.getChildren().add(hbox); // Add the HBox to the uiContainer
 
         // Add the UI container to the uiRoot
-        uiRoot.getChildren().add(uiContainer); // Add the uiContainer to the uiRoot
+        getInstance().uiRoot.getChildren().add(uiContainer); // Add the uiContainer to the uiRoot
 
         // Start the countdown timer
         startCountdown(timerLabel);

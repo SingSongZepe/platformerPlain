@@ -3,6 +3,7 @@ com\example\platformerplain\controller\HomeController.class
 com\example\platformerplain\object\Character.class
 com\example\platformerplain\object\EntitySelector.class
 com\example\platformerplain\object\FireDragonNode.class
+com\example\platformerplain\controller\InformationSubpage2Controller.class
 com\example\platformerplain\object\MovableObjectNode.class
 com\example\platformerplain\object\MummyNode.class
 com\example\platformerplain\SettingApplication.class
@@ -29,6 +30,7 @@ com\example\platformerplain\object\FeatureBlock.class
 com\example\platformerplain\utils\InitContent.class
 com\example\platformerplain\controller\MapsController.class
 com\example\platformerplain\object\FlyingCarpetNode.class
+com\example\platformerplain\controller\InformationSubpage3Controller.class
 com\example\platformerplain\utils\ScoreCalculator.class
 com\example\platformerplain\controller\SettingController.class
 com\example\platformerplain\object\Value.class
@@ -47,6 +49,7 @@ com\example\platformerplain\utils\Counter$1.class
 com\example\platformerplain\utils\File.class
 com\example\platformerplain\utils\IntArrayIterator.class
 com\example\platformerplain\pattern\Movable.class
+com\example\platformerplain\controller\InformationSubpage1Controller.class
 com\example\platformerplain\object\Entity.class
 com\example\platformerplain\object\ScoreManager.class
 com\example\platformerplain\object\ObstacleBlock.class

@@ -27,22 +27,22 @@ public class HomeController {
 
     @FXML
     public void switchOnClicked_Exit(MouseEvent actionEvent) throws IOException {
-        Start.setRoot("start");
+        Start.getInstance().setRoot("start");
     }
 
     @FXML
     public void switchOnClicked_Maps(ActionEvent actionEvent) throws IOException {
-        Start.setRoot("maps");
+        Start.getInstance().setRoot("maps");
     }
 
     @FXML
     public void switchOnClicked_Information(ActionEvent actionEvent) throws IOException {
-        Start.setRoot("information");
+        Start.getInstance().setRoot("information");
     }
 
     @FXML
     public void switchOnClicked_Option(ActionEvent actionEvent) throws IOException {
-        Start.setRoot("option");
+        Start.getInstance().setRoot("option");
     }
 
     /**
@@ -55,9 +55,9 @@ public class HomeController {
         System.out.println("Start game");
 
         // clear some data before starting the game
-        Start.gameState.spentTime = 0;
-        Start.gameState.collectedSupplies = 0;
+        Start.getInstance().gameState.spentTime = 0;
+        Start.getInstance().gameState.collectedSupplies = 0;
 
-        Start.startGame();
+        Start.getInstance().startGame();
     }
 }

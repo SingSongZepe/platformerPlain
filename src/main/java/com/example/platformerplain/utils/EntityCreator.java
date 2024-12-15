@@ -93,12 +93,12 @@ public class EntityCreator {
             case GLACIER_ICE_BLOCK_ -> new FeatureBlock(x, y, w, h, FeatureBlock.ICE_BLOCK, loadImageView(entityType, tag));
             case GLACIER_SNOW_BLOCK_ -> new FeatureBlock(x, y, w, h, FeatureBlock.SNOW_BLOCK, loadImageView(entityType, tag));
             // destination
-            case IGLOO_, OASIS_ -> new DestinationBlock(x, y, w, h, Start.gameState.map.index, loadImageView(entityType, tag));
+            case IGLOO_, OASIS_ -> new DestinationBlock(x, y, w, h, Start.getInstance().gameState.map.index, loadImageView(entityType, tag));
             // enemy blocks
-            case FIRE_DRAGON_ -> new FireDragonBlock(x, y, w, h, loadImageView(entityType, tag), Start.rangeIterator.next());
-            case MUMMY_ -> new MummyBlock(x, y, w, h, loadImageView(entityType, tag), Start.rangeIterator.next());
+            case FIRE_DRAGON_ -> new FireDragonBlock(x, y, w, h, loadImageView(entityType, tag), Start.getInstance().rangeIterator.next());
+            case MUMMY_ -> new MummyBlock(x, y, w, h, loadImageView(entityType, tag), Start.getInstance().rangeIterator.next());
             // moving object blocks
-            case FLYING_CARPET_ -> new FlyingCarpetBlock(x, y, w, h, loadImageView(entityType, tag), Start.rangeIterator.next());
+            case FLYING_CARPET_ -> new FlyingCarpetBlock(x, y, w, h, loadImageView(entityType, tag), Start.getInstance().rangeIterator.next());
 
             default -> throw new IllegalStateException("Unexpected value: " + entityType);
         };

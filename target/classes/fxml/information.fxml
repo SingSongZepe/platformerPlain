@@ -1,35 +1,82 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
-            prefHeight="720.0" prefWidth="1280.0"
-            xmlns="http://javafx.com/javafx/23.0.1"
-            xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="com.example.platformerplain.controller.InformationController"
-            stylesheets="@style.css">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.platformerplain.controller.InformationController">
 
-    <ImageView fitHeight="802.0" fitWidth="1283.0" layoutX="-3.0"
-               opacity="0.52" pickOnBounds="true">
-        <Image url="@../images/background/glacier1.jpg" />
+    <ImageView fitHeight="802.0" fitWidth="1283.0" layoutX="-3.0" opacity="0.52" pickOnBounds="true">
+        <Image url="@../images/1_StartMain/Intro_background.jpg" />
+    </ImageView>
+    <ImageView fitHeight="97.0" fitWidth="642.0" layoutX="47.0" layoutY="38.0" pickOnBounds="true" preserveRatio="true">
+        <Image url="@../images/information/Information_title.png" />
     </ImageView>
 
-    <Text layoutX="92.0" layoutY="93.0" strokeType="OUTSIDE"
-          strokeWidth="0.0"
-          text="This is information page">
-        <font>
-            <Font size="33.0"/>
-        </font>
-    </Text>
-
-    <ImageView fx:id="Information_closePage" fitHeight="58.0" fitWidth="58.0" layoutX="1203.0" layoutY="15.0"
-               onMouseClicked="#Switch_toHome" pickOnBounds="true" preserveRatio="true"
-               styleClass="Home_closePage">
+    <ImageView fx:id="Information_closePage" fitHeight="58.0" fitWidth="58.0" layoutX="1203.0" layoutY="15.0" onMouseClicked="#Switch_toHome" pickOnBounds="true" preserveRatio="true" styleClass="Home_closePage">
         <Image url="@../images/buttons/close.png" />
     </ImageView>
+    <ImageView fitHeight="472.0" fitWidth="663.0" layoutX="100.0" layoutY="160.0" pickOnBounds="true" preserveRatio="true">
+        <Image url="@../images/board/information_board1.jpg" />
+    </ImageView>
+    <ImageView fitHeight="472.0" fitWidth="400.0" layoutX="850.0" layoutY="160.0" pickOnBounds="true" preserveRatio="true">
+        <Image url="@../images/board/information_board2.jpg" />
+    </ImageView>
+    <ImageView fitHeight="37.0" fitWidth="218.0" layoutX="311.0" layoutY="191.0" pickOnBounds="true" preserveRatio="true">
+        <Image url="@../images/information/AboutGame.png" />
+    </ImageView>
+    <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="901.0" layoutY="187.0" pickOnBounds="true" preserveRatio="true">
+        <Image url="@../images/information/Controller.png" />
+    </ImageView>
+    <AnchorPane layoutX="128.0" layoutY="234.0" prefHeight="359.0" prefWidth="580.0">
+        <VBox prefHeight="359.0" prefWidth="100.0">
+            <Button fx:id="info_introbutton" mnemonicParsing="false" onAction="#switch_intro" prefHeight="39.0" prefWidth="100.0" text="Introduction">
+                <VBox.margin>
+                    <Insets top="20.0" />
+                </VBox.margin>
+            </Button>
+            <Button fx:id="info_level1button" mnemonicParsing="false" onAction="#switch_level1" prefHeight="39.0" prefWidth="100.0" text="Glacier Level">
+                <VBox.margin>
+                    <Insets top="20.0" />
+                </VBox.margin>
+            </Button>
+            <Button fx:id="info_level2button" mnemonicParsing="false" onAction="#switch_level2" prefHeight="39.0" prefWidth="100.0" text="Desert Level">
+                <VBox.margin>
+                    <Insets top="20.0" />
+                </VBox.margin>
+            </Button>
+        </VBox>
+        <Pane fx:id="ContentArea" layoutX="100.0" prefHeight="359.0" prefWidth="481.0" />
+    </AnchorPane>
+    <ImageView fitHeight="82.0" fitWidth="68.0" layoutX="902.0" layoutY="250.0" pickOnBounds="true" preserveRatio="true">
+        <Image url="@../images/information/A.png" />
+    </ImageView>
+   <Text layoutX="996.0" layoutY="290.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Move Left" wrappingWidth="115.470947265625">
+      <font>
+         <Font size="23.0" />
+      </font>
+   </Text>
+    <ImageView fitHeight="82.0" fitWidth="68.0" layoutX="902.0" layoutY="350.0" pickOnBounds="true" preserveRatio="true">
+        <Image url="@../images/information/D.png" />
+    </ImageView>
+    <ImageView fitHeight="82.0" fitWidth="68.0" layoutX="902.0" layoutY="450.0" pickOnBounds="true" preserveRatio="true">
+        <Image url="@../images/information/W.png" />
+    </ImageView>
+   <Text layoutX="996.0" layoutY="392.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Move Right" wrappingWidth="115.470947265625">
+      <font>
+         <Font size="23.0" />
+      </font>
+   </Text>
+   <Text layoutX="996.0" layoutY="492.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Jump" wrappingWidth="115.470947265625">
+      <font>
+         <Font size="23.0" />
+      </font>
+   </Text>
 
 </AnchorPane>
