@@ -13,9 +13,8 @@ import static com.example.platformerplain.Start.getInstance;
 
 public class InformationController {
     public ImageView Information_closePage;
-    public Button info_level1button;
     public Button info_introbutton;
-    public Button info_introduction;
+    public Button info_level1button;
     public Button info_level2button;
     public Pane ContentArea;
 
@@ -23,14 +22,15 @@ public class InformationController {
         getInstance().setRoot("home");
     }
 
-    public void switch_intro(ActionEvent actionEvent) {
-
+    public void switch_intro(ActionEvent actionEvent) throws IOException {
+        getInstance().setRoot("information_subpage1");
     }
 
-    public void switch_level1(ActionEvent actionEvent) {
-
+    public void switch_level1(ActionEvent actionEvent) throws IOException {
+        getInstance().setRoot("information_subpage2");
     }
 
-    public void switch_level2(ActionEvent actionEvent) {
+    public void switch_level2(ActionEvent actionEvent) throws IOException {
+        getInstance().setRoot("information_subpage3");
     }
 }

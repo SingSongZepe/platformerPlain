@@ -1,5 +1,6 @@
 F:\MyProjects\receive\platformer\code\PlatformerPlain_main\src\main\java\com\example\platformerplain\object\MovableNode.java
 F:\MyProjects\receive\platformer\code\PlatformerPlain_main\src\main\java\com\example\platformerplain\utils\ScoreCalculator.java
+F:\MyProjects\receive\platformer\code\PlatformerPlain_main\src\main\java\com\example\platformerplain\controller\InformationSubpage3Controller.java
 F:\MyProjects\receive\platformer\code\PlatformerPlain_main\src\main\java\com\example\platformerplain\object\Value.java
 F:\MyProjects\receive\platformer\code\PlatformerPlain_main\src\main\java\com\example\platformerplain\object\FeatureBlock.java
 F:\MyProjects\receive\platformer\code\PlatformerPlain_main\src\main\java\com\example\platformerplain\pattern\NoMove.java
@@ -14,6 +15,7 @@ F:\MyProjects\receive\platformer\code\PlatformerPlain_main\src\main\java\com\exa
 F:\MyProjects\receive\platformer\code\PlatformerPlain_main\src\main\java\com\example\platformerplain\object\GameState.java
 F:\MyProjects\receive\platformer\code\PlatformerPlain_main\src\main\java\com\example\platformerplain\object\ObstacleBlock.java
 F:\MyProjects\receive\platformer\code\PlatformerPlain_main\src\main\java\module-info.java
+F:\MyProjects\receive\platformer\code\PlatformerPlain_main\src\main\java\com\example\platformerplain\controller\InformationSubpage1Controller.java
 F:\MyProjects\receive\platformer\code\PlatformerPlain_main\src\main\java\com\example\platformerplain\test\TestScoreManager.java
 F:\MyProjects\receive\platformer\code\PlatformerPlain_main\src\main\java\com\example\platformerplain\object\FeatureNode.java
 F:\MyProjects\receive\platformer\code\PlatformerPlain_main\src\main\java\com\example\platformerplain\controller\ScoreController.java
@@ -36,6 +38,7 @@ F:\MyProjects\receive\platformer\code\PlatformerPlain_main\src\main\java\com\exa
 F:\MyProjects\receive\platformer\code\PlatformerPlain_main\src\main\java\com\example\platformerplain\LevelData.java
 F:\MyProjects\receive\platformer\code\PlatformerPlain_main\src\main\java\com\example\platformerplain\object\PlatformBlock.java
 F:\MyProjects\receive\platformer\code\PlatformerPlain_main\src\main\java\com\example\platformerplain\pattern\LineMove.java
+F:\MyProjects\receive\platformer\code\PlatformerPlain_main\src\main\java\com\example\platformerplain\controller\InformationSubpage2Controller.java
 F:\MyProjects\receive\platformer\code\PlatformerPlain_main\src\main\java\com\example\platformerplain\object\ScoreManager.java
 F:\MyProjects\receive\platformer\code\PlatformerPlain_main\src\main\java\com\example\platformerplain\object\MummyBlock.java
 F:\MyProjects\receive\platformer\code\PlatformerPlain_main\src\main\java\com\example\platformerplain\controller\InformationController.java

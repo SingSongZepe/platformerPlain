@@ -580,5 +580,9 @@ ps. 今天没多少时间，只写了一些代码。
 ### feature7 v8 15.12.2024
 
 1. 适当调大了supply
+
 2. 默认地图修改为1
+
 3. 把Start真正作为一个Singleton class使用，重构了所用用到的文件
+
+4. 添加了information，information_subpage1，information_subpage2，information_subpage3并实现了跳转逻辑。

@@ -10,10 +10,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
-            prefHeight="720.0" prefWidth="1280.0" stylesheets="@style.css"
-            xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="com.example.platformerplain.controller.InformationController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.platformerplain.controller.InformationController">
 
     <ImageView fitHeight="802.0" fitWidth="1283.0" layoutX="-3.0" opacity="0.52" pickOnBounds="true">
         <Image url="@../images/1_StartMain/Intro_background.jpg" />
@@ -37,6 +34,7 @@
     <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="901.0" layoutY="187.0" pickOnBounds="true" preserveRatio="true">
         <Image url="@../images/information/Controller.png" />
     </ImageView>
+
     <AnchorPane layoutX="128.0" layoutY="234.0" prefHeight="359.0" prefWidth="580.0">
         <VBox prefHeight="359.0" prefWidth="100.0">
             <Button fx:id="info_introbutton" mnemonicParsing="false" onAction="#switch_intro" prefHeight="39.0" prefWidth="100.0" text="Introduction">
@@ -49,13 +47,13 @@
                     <Insets top="20.0" />
                 </VBox.margin>
             </Button>
-            <Button fx:id="info_level2button" mnemonicParsing="false" onAction="#switchl_evel2" prefHeight="39.0" prefWidth="100.0" text="Desert Level">
+            <Button fx:id="info_level2button" mnemonicParsing="false" onAction="#switch_level2" prefHeight="39.0" prefWidth="100.0" text="Desert Level">
                 <VBox.margin>
                     <Insets top="20.0" />
                 </VBox.margin>
             </Button>
         </VBox>
-        <Pane fx:id="Contentarea" layoutX="100.0" prefHeight="359.0" prefWidth="481.0" />
+        <Pane fx:id="ContentArea" layoutX="100.0" prefHeight="359.0" prefWidth="481.0" />
     </AnchorPane>
     <ImageView fitHeight="82.0" fitWidth="68.0" layoutX="902.0" layoutY="250.0" pickOnBounds="true" preserveRatio="true">
         <Image url="@../images/information/A.png" />

@@ -22,7 +22,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Objects;
 
-
 /**
  * Singleton class that starts the game.
  * scene is the root node of the game.
