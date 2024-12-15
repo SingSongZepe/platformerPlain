@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="359.0" prefWidth="481.0" xmlns="http://javafx.com/javafx/23.0.1"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.example.platformerplain.controller.InformationSubpage3Controller">
+
+   <Text layoutX="109.0" layoutY="115.0" strokeType="OUTSIDE" strokeWidth="0.0"
+         text="Traveling through the hot desert, you will encounter obstacles such as boulders and cacti, and be careful of dangerous enemies such as fire dragons and mummies. In this sandstorm-ravaged environment, every step is full of unknowns and dangers. Your task is to reach the tent safely, which is not only a test of your skills and reactions, but also a sign of victory in the desert level."
+         wrappingWidth="280.21630859375"/>
+
+</AnchorPane>

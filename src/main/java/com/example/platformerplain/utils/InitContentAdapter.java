@@ -16,22 +16,21 @@ import static com.example.platformerplain.Start.*;
 
 
 public class InitContentAdapter {
-
     public void initContent() throws IOException {
         // load background picture
         ImageView bg = getBg();
 
         // load data of map
-        int idx = gameState.map.index - 1;
+        int idx = getInstance().gameState.map.index - 1;
         // load total supplies
-        gameState.totalSupplies = LevelData.LevelSupplies.get(idx);
+        getInstance().gameState.totalSupplies = LevelData.LevelSupplies.get(idx);
 
         // load level content
         String[] level = LevelData.Levels.get(idx);
         int levelWidth = level[0].length() * 60;  // Declare levelWidth in initContent() method directly
 
         // load ranges of moving objects
-        rangeIterator = new IntArrayIterator((ArrayList<int[]>) LevelData.LevelMovableObjectRanges.get(idx));
+        getInstance().rangeIterator = new IntArrayIterator((ArrayList<int[]>) LevelData.LevelMovableObjectRanges.get(idx));
 
         for (int i = 0; i < level.length; i++){
             String line = level[i];
@@ -40,92 +39,17 @@ public class InitContentAdapter {
             }
         }
 
-        playerController = new PlayerController(scene, gameRoot,
-                platforms, featureNodes, supplyNodes, destinationNode, movableNodes, enemyNodes,
-                levelWidth, gameState.character.index);  // Refactor Player using Observer Pattern
+        getInstance().playerController = new PlayerController(getInstance().scene, getInstance().gameRoot,
+//                platforms, featureNodes, supplyNodes, destinationNode, movableNodes, enemyNodes,
+                levelWidth, getInstance().gameState.character.index);  // Refactor Player using Observer Pattern
 
-        timer.start();
-        appRoot.getChildren().addAll(bg, gameRoot);
+        getInstance().timer.start();
+        getInstance().appRoot.getChildren().addAll(bg, getInstance().gameRoot);
 
         // load uiRoot
         InitGameUi.initGameUi();
-        appRoot.getChildren().add(uiRoot);
+        getInstance().appRoot.getChildren().add(getInstance().uiRoot);
     }
-
-//    private void initContent1() throws IOException {
-//        // load background picture
-//        ImageView bg = getBg();
-//
-//        // load data of map
-//        int idx = gameState.map.index - 1;
-//        // load total supplies
-//        gameState.totalSupplies = LevelData.LevelSupplies.get(idx);
-//
-//        // load level content
-//        String[] level = LevelData.Levels.get(idx);
-//        int levelWidth = level[0].length() * 60;  // Declare levelWidth in initContent() method directly
-//
-//        // load ranges of moving objects
-//        rangeIterator = new IntArrayIterator((ArrayList<int[]>) LevelData.LevelMovableObjectRanges.get(idx));
-//
-//        for (int i = 0; i < level.length; i++){
-//            String line = level[i];
-//            for (int j=0; j <line.length();j++){
-//                EntitySelector.InsertEntity(line.charAt(j), j, i);
-//            }
-//        }
-//
-//        playerController = new PlayerController(scene, gameRoot,
-//                platforms, featureNodes, supplyNodes, destinationNode, movableNodes, enemyNodes,
-//                levelWidth, gameState.character.index);  // Refactor Player using Observer Pattern
-//
-//        timer.start();
-//        appRoot.getChildren().addAll(bg, gameRoot);
-//
-//        // load uiRoot
-//        InitGameUi.initGameUi();
-//        appRoot.getChildren().add(uiRoot);
-//    }
-//
-//
-//    private void initContent2() throws IOException {
-//        // load background picture
-//        ImageView bg = getBg();
-//
-//        // load data of map
-//        int idx = gameState.map.index - 1;
-//        // load total supplies
-//        gameState.totalSupplies = LevelData.LevelSupplies.get(idx);
-//
-//        // load level content
-//        String[] level = LevelData.Levels.get(idx);
-//        int levelWidth = level[0].length() * 60;  // Declare levelWidth in initContent() method directly
-//
-//        // load ranges of moving objects
-//        rangeIterator = new IntArrayIterator((ArrayList<int[]>) LevelData.LevelMovableObjectRanges.get(idx));
-//
-//        for (int i = 0; i < level.length; i++){
-//            String line = level[i];
-//            for (int j=0; j <line.length();j++){
-//                EntitySelector.InsertEntity(line.charAt(j), j, i);
-//            }
-//        }
-//
-//        playerController = new PlayerController(scene, gameRoot,
-//                platforms, featureNodes, supplyNodes, destinationNode, movableNodes, enemyNodes,
-//                levelWidth, gameState.character.index);  // Refactor Player using Observer Pattern
-//
-//        timer.start();
-//        appRoot.getChildren().addAll(bg, gameRoot);
-//
-//        // load uiRoot
-//        InitGameUi.initGameUi();
-//        appRoot.getChildren().add(uiRoot);
-//    }
-//
-//    private void initContent3() throws IOException {
-//
-//    }
 
     /**
      * use entity to generate an imageview
@@ -152,7 +76,7 @@ public class InitContentAdapter {
      */
     private static ImageView getBg() {
         ImageView bg = new ImageView(new Image(Objects.requireNonNull(
-                Start.class.getResourceAsStream( Map.getRandomMapBackground(gameState.map.index))
+                Start.class.getResourceAsStream( Map.getRandomMapBackground(getInstance().gameState.map.index))
         )));
 
         // Set the ImageView to stretch to 1280x720

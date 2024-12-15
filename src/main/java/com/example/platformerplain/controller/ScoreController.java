@@ -16,6 +16,8 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.example.platformerplain.Start.getInstance;
+
 public class ScoreController {
 
     @FXML
@@ -40,7 +42,7 @@ public class ScoreController {
 
         returnToMenuButton.setCursor(javafx.scene.Cursor.HAND);
 
-        int currentScore = ScoreCalculator.calculateScore(Start.gameState);
+        int currentScore = ScoreCalculator.calculateScore(getInstance().gameState);
         currentScoreText.setText(String.valueOf(currentScore));
 
         int highScore = loadHighScore();
@@ -48,7 +50,7 @@ public class ScoreController {
 
         // check if current score is higher than high score
         // if yes, update high score in to the file
-        int map_index = Start.gameState.map.index;
+        int map_index = getInstance().gameState.map.index;
 
         LocalDateTime now = LocalDateTime.now();
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd hh:mm:ss");
@@ -74,8 +76,8 @@ public class ScoreController {
                 map_index-1,
                 new Score(
                     currentScore,
-                    Start.gameState.map.index,
-                    Start.gameState.map.map_name,
+                    getInstance().gameState.map.index,
+                    getInstance().gameState.map.map_name,
                     date
                 )
             );
@@ -97,7 +99,7 @@ public class ScoreController {
             loadedScores = ScoreManager.deserializeScores(filename);
             System.out.println("Loaded scores: " + loadedScores);
             // find the highest score
-            int map_index = Start.gameState.map.index;
+            int map_index = getInstance().gameState.map.index;
 
             return loadedScores.get(map_index-1).getScore();
 
@@ -111,6 +113,6 @@ public class ScoreController {
 
     @FXML
     public void Switch_toHome(ActionEvent actionEvent) throws IOException {
-        Start.setRoot("home");
+        getInstance().setRoot("home");
     }
 }

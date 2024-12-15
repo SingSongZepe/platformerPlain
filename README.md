@@ -127,7 +127,7 @@
 
 > - 这是原版积分规则
 > 
-> > ![](F:\MyProjects\receive\java_design_mode\code\PlatformerPlain_main\readme_images\Snipaste_2024-12-11_19-17-45.png)
+> > ![](.\readme_images\Snipaste_2024-12-11_19-17-45.png)
 > > 
 > > 这个得分规则有点奇怪，通关时间和得分正相关
 > 
@@ -424,7 +424,7 @@ ps. 今天没多少时间，只写了一些代码。
 
 7.修复了timeLabel的提取时间的逻辑bug
 
-### feature6 b7 14.12.2024
+### feature6 v7 14.12.2024
 
 1.接feature5 6 定义它们的模型尺寸为：
 
@@ -576,3 +576,13 @@ ps. 今天没多少时间，只写了一些代码。
 > 00000000 00000000 00000000 00000000 00000000 00000000 00011111 11111111 111
 
 21. 关卡2设计完成。
+
+### feature7 v8 15.12.2024
+
+1. 适当调大了supply
+
+2. 默认地图修改为1
+
+3. 把Start真正作为一个Singleton class使用，重构了所用用到的文件
+
+4. 添加了information，information_subpage1，information_subpage2，information_subpage3并实现了跳转逻辑。

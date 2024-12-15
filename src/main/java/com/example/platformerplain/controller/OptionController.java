@@ -9,11 +9,13 @@ import com.example.platformerplain.Start;
 
 import java.io.IOException;
 
+import static com.example.platformerplain.Start.getInstance;
+
 public class OptionController {
     public ImageView Option_closePage;
 
     public void Switch_toHome(MouseEvent actionEvent) throws IOException {
-        Start.setRoot("home");
+        getInstance().setRoot("home");
     }
 
     public void Switch_to_player1(ActionEvent actionEvent) {
@@ -37,6 +39,6 @@ public class OptionController {
     // ...
     private void Switch_player(int index) {
         System.out.println("Switch to player " + index);
-        Start.gameState.setCharacter(index);
+        getInstance().gameState.setCharacter(index);
     }
 }

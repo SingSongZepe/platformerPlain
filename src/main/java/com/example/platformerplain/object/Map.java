@@ -1,6 +1,5 @@
 package com.example.platformerplain.object;
 
-import com.example.platformerplain.pattern.Decorator;
 import com.example.platformerplain.utils.RandomNumberGenerator;
 
 /**
@@ -24,8 +23,8 @@ public class Map {
     public String map_name;
 
     public Map() {
-        this.index = MAP_2_INDEX;
-        this.map_name = MAP_2_NAME;
+        this.index = MAP_1_INDEX;
+        this.map_name = MAP_1_NAME;
     }
 
     public Map(int index, String map_name) {

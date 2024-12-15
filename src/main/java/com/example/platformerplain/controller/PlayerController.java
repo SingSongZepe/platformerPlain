@@ -14,15 +14,17 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+import static com.example.platformerplain.Start.*;
+
 public class PlayerController {
     private PlayerModel playerModel;
     private PlayerView playerView;
-    private List<Node> platforms;
-    private List<FeatureNode> featureNodes;
-    private List<SupplyNode> supplyNodes;
-    private DestinationNode destinationNode;
-    private List<MovableNode> movableNodes;
-    private List<EnemyNode> enemyNodes;
+    private List<Node> platforms = getInstance().platforms;
+    private List<FeatureNode> featureNodes = getInstance().featureNodes;
+    private List<SupplyNode> supplyNodes = getInstance().supplyNodes;
+    private DestinationNode destinationNode = getInstance().destinationNode;
+    private List<MovableNode> movableNodes = getInstance().movableNodes;
+    private List<EnemyNode> enemyNodes = getInstance().enemyNodes;
     private HashMap<KeyCode, Boolean> keys = new HashMap<>();
     private int levelWidth;
     private int index; // index of character that player selected
@@ -32,24 +34,24 @@ public class PlayerController {
     private boolean isMovingRight = true;
 
     public PlayerController(Scene scene, Pane root,
-                            ArrayList<Node> platforms,
-                            ArrayList<FeatureNode> featureNodes,
-                            ArrayList<SupplyNode> supplyNodes,
-                            DestinationNode destinationNode,
-                            ArrayList<MovableNode> movableNodes,
-                            ArrayList<EnemyNode> enemyNodes,
+//                            ArrayList<Node> platforms,
+//                            ArrayList<FeatureNode> featureNodes,
+//                            ArrayList<SupplyNode> supplyNodes,
+//                            DestinationNode destinationNode,
+//                            ArrayList<MovableNode> movableNodes,
+//                            ArrayList<EnemyNode> enemyNodes,
                             int levelWidth, int index) {
 
         playerModel = new PlayerModel();
         playerView = new PlayerView(root, playerModel, index);
         scene.setOnKeyPressed(event -> keys.put(event.getCode(), true));
         scene.setOnKeyReleased(event -> keys.put(event.getCode(), false));
-        this.platforms = platforms;
-        this.featureNodes = featureNodes;
-        this.supplyNodes = supplyNodes;
-        this.destinationNode = destinationNode;
-        this.movableNodes = movableNodes;
-        this.enemyNodes = enemyNodes;
+//        this.platforms = platforms;
+//        this.featureNodes = featureNodes;
+//        this.supplyNodes = supplyNodes;
+//        this.destinationNode = destinationNode;
+//        this.movableNodes = movableNodes;
+//        this.enemyNodes = enemyNodes;
 
         this.levelWidth = levelWidth;
         this.index = index;
@@ -93,13 +95,13 @@ public class PlayerController {
                 // when you get the supply, delete it from the array
                 toBeDeleted = supplyNode;
 
-                Start.gameState.collectedSupplies += 1;
+                getInstance().gameState.collectedSupplies += 1;
                 break;
             }
         }
 
         if (toBeDeleted != null) {
-            Start.gameRoot.getChildren().remove(toBeDeleted.node);
+            getInstance().gameRoot.getChildren().remove(toBeDeleted.node);
             supplyNodes.remove(toBeDeleted);
         }
 
@@ -108,7 +110,7 @@ public class PlayerController {
         double playerMaxX = playerMinX + playerView.getPlayerNode().getBoundsInLocal().getWidth();
         double midPlayerX = (playerMinX + playerMaxX) / 2;
 
-        if (destinationNode.node.getBoundsInParent().contains(midPlayerX, playerModel.getY() + 70)) {
+        if (destinationNode != null && destinationNode.node.getBoundsInParent().contains(midPlayerX, playerModel.getY() + 70)) {
             // you win the game
             Start.gameWin();
             return;
