@@ -127,7 +127,7 @@
 
 > - 这是原版积分规则
 > 
-> > ![](F:\MyProjects\receive\java_design_mode\code\PlatformerPlain_main\readme_images\Snipaste_2024-12-11_19-17-45.png)
+> > ![](.\readme_images\Snipaste_2024-12-11_19-17-45.png)
 > > 
 > > 这个得分规则有点奇怪，通关时间和得分正相关
 > 
