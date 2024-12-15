@@ -41,7 +41,7 @@ public class InitContentAdapter {
         }
 
         playerController = new PlayerController(scene, gameRoot,
-                platforms, featureNodes, supplyNodes, destinationNode, movableNodes, enemyNodes,
+//                platforms, featureNodes, supplyNodes, destinationNode, movableNodes, enemyNodes,
                 levelWidth, gameState.character.index);  // Refactor Player using Observer Pattern
 
         timer.start();

@@ -7,9 +7,7 @@ module com.example.platformerplain {
 
 
     opens com.example.platformerplain to javafx.fxml;
-    opens multiplewindows to javafx.fxml;
     exports com.example.platformerplain;
-    exports multiplewindows;
     exports com.example.platformerplain.controller;
     opens com.example.platformerplain.controller to javafx.fxml;
     exports com.example.platformerplain.object;

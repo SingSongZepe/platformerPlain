@@ -1,7 +1,5 @@
 package com.example.platformerplain.object;
 
-import com.example.platformerplain.pattern.Decorator;
-
 /**
  * design pattern: Decorator.
  * Decorator design pattern implementation for Character class.

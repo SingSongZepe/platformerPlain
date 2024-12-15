@@ -13,6 +13,7 @@ public class DestinationBlock extends Entity {
         this.destinationType = switch (map_index) {
             case 1 -> IGLOO_;
             case 2 -> OASIS_;
+            case 3 -> IGLOO_;
             default -> throw new IllegalStateException("Unexpected value: " + map_index);
         };
     }
