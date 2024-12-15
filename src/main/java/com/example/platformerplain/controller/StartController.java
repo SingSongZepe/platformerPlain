@@ -8,6 +8,8 @@ import javafx.scene.layout.Pane;
 
 import java.io.IOException;
 
+import static com.example.platformerplain.Start.getInstance;
+
 public class StartController {
     public Button Start_button_next;
     public ImageView Title_image;
@@ -15,7 +17,7 @@ public class StartController {
     public Pane Pane_Start;
 
     public void switchOnClicked(ActionEvent actionEvent) throws IOException {
-        Start.setRoot("home");
+        getInstance().setRoot("home");
     }
 
 }

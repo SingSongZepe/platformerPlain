@@ -12,6 +12,8 @@ import javafx.scene.input.MouseEvent;
 
 import java.io.IOException;
 
+import static com.example.platformerplain.Start.getInstance;
+
 public class MapsController {
     @FXML
     public ImageView Maps_backgroundImage;
@@ -33,7 +35,7 @@ public class MapsController {
 
     @FXML
     public void Switch_toHome(MouseEvent actionEvent) throws IOException {
-        Start.setRoot("home");
+        getInstance().setRoot("home");
     }
 
 
@@ -116,7 +118,7 @@ public class MapsController {
     @FXML
     public void Switch_GameLevel1(ActionEvent actionEvent) {
         System.out.println("Switch to Game Level 1");
-        Start.gameState.setMap(1);
+        getInstance().gameState.setMap(1);
     }
 
     /**
@@ -126,7 +128,7 @@ public class MapsController {
     @FXML
     public void Switch_GameLevel2(ActionEvent actionEvent) {
         System.out.println("Switch to Game Level 2");
-        Start.gameState.setMap(2);
+        getInstance().gameState.setMap(2);
     }
 
     /**
@@ -136,6 +138,6 @@ public class MapsController {
     @FXML
     public void Switch_GameLevel3(ActionEvent actionEvent) {
         System.out.println("Switch to Game Level 3");
-        Start.gameState.setMap(3);
+        getInstance().gameState.setMap(3);
     }
 }

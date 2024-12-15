@@ -19,12 +19,12 @@ import static com.example.platformerplain.Start.*;
 public class PlayerController {
     private PlayerModel playerModel;
     private PlayerView playerView;
-//    private List<Node> platforms;
-//    private List<FeatureNode> featureNodes;
-//    private List<SupplyNode> supplyNodes;
-//    private DestinationNode destinationNode;
-//    private List<MovableNode> movableNodes;
-//    private List<EnemyNode> enemyNodes;
+    private List<Node> platforms = getInstance().platforms;
+    private List<FeatureNode> featureNodes = getInstance().featureNodes;
+    private List<SupplyNode> supplyNodes = getInstance().supplyNodes;
+    private DestinationNode destinationNode = getInstance().destinationNode;
+    private List<MovableNode> movableNodes = getInstance().movableNodes;
+    private List<EnemyNode> enemyNodes = getInstance().enemyNodes;
     private HashMap<KeyCode, Boolean> keys = new HashMap<>();
     private int levelWidth;
     private int index; // index of character that player selected
@@ -95,13 +95,13 @@ public class PlayerController {
                 // when you get the supply, delete it from the array
                 toBeDeleted = supplyNode;
 
-                Start.gameState.collectedSupplies += 1;
+                getInstance().gameState.collectedSupplies += 1;
                 break;
             }
         }
 
         if (toBeDeleted != null) {
-            Start.gameRoot.getChildren().remove(toBeDeleted.node);
+            getInstance().gameRoot.getChildren().remove(toBeDeleted.node);
             supplyNodes.remove(toBeDeleted);
         }
 

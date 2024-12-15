@@ -66,31 +66,31 @@ public class Start extends Application {
         return instance;
     }
 
-    public static Scene scene;
-    private static MediaPlayer mediaPlayer;
+    public Scene scene;
+    private MediaPlayer mediaPlayer;
     // record the information of the condition of the game
-    public static GameState gameState;
+    public GameState gameState;
     // use for the game logic
-    private static HashMap<KeyCode, Boolean> keys = new HashMap<KeyCode, Boolean>();
-    public static ArrayList<Node> platforms = new ArrayList<>();
-    public static ArrayList<FeatureNode> featureNodes = new ArrayList<>();
-    public static ArrayList<SupplyNode> supplyNodes = new ArrayList<>();
-    public static DestinationNode destinationNode;
+    private HashMap<KeyCode, Boolean> keys = new HashMap<KeyCode, Boolean>();
+    public ArrayList<Node> platforms = new ArrayList<>();
+    public ArrayList<FeatureNode> featureNodes = new ArrayList<>();
+    public ArrayList<SupplyNode> supplyNodes = new ArrayList<>();
+    public DestinationNode destinationNode;
     //
-    public static ArrayList<MovableNode> movableNodes = new ArrayList<>();
-    public static ArrayList<EnemyNode> enemyNodes = new ArrayList<>();
+    public ArrayList<MovableNode> movableNodes = new ArrayList<>();
+    public ArrayList<EnemyNode> enemyNodes = new ArrayList<>();
 
-    public static Pane appRoot = new Pane();
-    public static Pane gameRoot = new Pane();
-    public static Pane uiRoot = new Pane();
+    public Pane appRoot = new Pane();
+    public Pane gameRoot = new Pane();
+    public Pane uiRoot = new Pane();
 
-    public static PlayerController playerController;
-    public static AnimationTimer timer;
+    public PlayerController playerController;
+    public AnimationTimer timer;
 
-    public static AnimationTimer timerLabelTimer;
+    public AnimationTimer timerLabelTimer;
 
     // use to initialize the ranges of movable objects
-    public static IntArrayIterator rangeIterator;
+    public IntArrayIterator rangeIterator;
 
     /**
      * Start the game by loading the start scene.
@@ -116,7 +116,7 @@ public class Start extends Application {
      * @param fxml
      * @throws IOException
      */
-    public static void setRoot(String fxml) throws IOException {
+    public void setRoot(String fxml) throws IOException {
         scene.setRoot(loadFXML(fxml));
     }
 
@@ -151,7 +151,7 @@ public class Start extends Application {
         System.out.println("Countdown finished!"); // Placeholder for your callback logic
         // ! TODO You can add more logic here, like transitioning to another scene or showing a game over screen
         try {
-            Start.setRoot("game_over");
+            Start.getInstance().setRoot("game_over");
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
@@ -161,7 +161,7 @@ public class Start extends Application {
      * Start the game by loading the game scene.
      * @throws IOException
      */
-    public static void startGame() throws IOException {
+    public void startGame() throws IOException {
         clearContentStates();
 
         scene.setRoot(appRoot);
@@ -189,14 +189,14 @@ public class Start extends Application {
      * Quit the game by clearing all the data of a map(game).
      * @throws IOException
      */
-    public static void quitGame() throws IOException {
+    public void quitGame() throws IOException {
         // clear all the data of a map(game)
         clearContentStates();
         gameState = new GameState();
 
         timer.stop();
 
-        Start.setRoot("home");
+        setRoot("home");
     }
 
     /**
@@ -206,12 +206,12 @@ public class Start extends Application {
      */
     public static void gameOver() throws IOException {
         // clear all the data of a map(game)
-        gameState = new GameState();
+        getInstance().gameState = new GameState();
 
-        timer.stop();
+        getInstance().timer.stop();
 
         clearContentStates();
-        Start.setRoot("game_over");
+        getInstance().setRoot("game_over");
     }
 
     /**
@@ -241,39 +241,39 @@ public class Start extends Application {
             throw new RuntimeException("Invalid time format: " + timeFormatted);
         }
         int spentTime = GameState.TOTAL_TIME - totalSeconds;
-        gameState.spentTime = spentTime;
+        getInstance().gameState.spentTime = spentTime;
 
-        timer.stop();
+        getInstance().timer.stop();
 
         // clear all the data of a map(game)
         clearContentStates();
-        Start.setRoot("score");
+        getInstance().setRoot("score");
     }
 
     private static void clearContentStates() {
 
         // Stop and release the media player
-        if (mediaPlayer != null) {
-            mediaPlayer.stop();
-            mediaPlayer.dispose();
-            mediaPlayer = null;
+        if (getInstance().mediaPlayer != null) {
+            getInstance().mediaPlayer.stop();
+            getInstance().mediaPlayer.dispose();
+            getInstance().mediaPlayer = null;
         }
 
         // Stop and release the timerLabelTimer
-        if (timerLabelTimer != null) {
-            timerLabelTimer.stop();
-            timerLabelTimer = null;
+        if (getInstance().timerLabelTimer != null) {
+            getInstance().timerLabelTimer.stop();
+            getInstance().timerLabelTimer = null;
         }
 
-        platforms.clear();
-        featureNodes.clear();
-        supplyNodes.clear();
-        destinationNode = null;
-        movableNodes.clear();
-        enemyNodes.clear();
-        gameRoot = new Pane();
-        appRoot = new Pane();
-        uiRoot = new Pane();
-        playerController = null;
+        getInstance().platforms.clear();
+        getInstance().featureNodes.clear();
+        getInstance().supplyNodes.clear();
+        getInstance().destinationNode = null;
+        getInstance().movableNodes.clear();
+        getInstance().enemyNodes.clear();
+        getInstance().gameRoot = new Pane();
+        getInstance().appRoot = new Pane();
+        getInstance().uiRoot = new Pane();
+        getInstance().playerController = null;
     }
 }
